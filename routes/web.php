@@ -17,3 +17,21 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 });
+Route::get('/faqs', function () {
+    return view('faqs');
+});
+Route::get('/forgottenpassword', function () {
+    return view('forgottenpass');
+});
+Route::get('/logout', function () {
+    return view('logout');
+});
+Route::get('/recoverpassword', function () {
+    return view('recoverpass');
+});
+Route::get('/signin', function () {
+    return view('signin');
+});
+Route::get('/signup', function () {
+    return view('signup');
+});
