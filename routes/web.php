@@ -35,3 +35,11 @@ Route::get('/signin', function () {
 Route::get('/signup', function () {
     return view('signup');
 });
+Route::get('/profile', function () {
+    return view('profile');
+});Route::get('/feed', function () {
+    return view('feed');
+});
+Route::get('/editprofile', function () {
+    return view('editprofile');
+});
