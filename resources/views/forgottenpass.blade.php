@@ -1,87 +1,9 @@
-<?php
-//Defino variables vacías para cada campo a completar
-$username = "";
-$secretAnswer="";
-
-//Defino variables para cada error posible
-$errorUsername = "";
-$errorSecretAnswer = "";
-$errorUsernameVerify = "";
-$errorQuestionVerify = "";
-$errorSecretAnswerVerify = "";
-$hayErrores = false;
-$hayErroresDeVerificacion = false;
-
-//Recupero los datos del usuario guardados en Json y los paso a un array
-$usuarioGuardadoJson = file_get_contents('usuarios.json');
-$usuarioGuardadoEnArray = json_decode($usuarioGuardadoJson, true);
-
-//Si recibo información por post
-
-if($_POST){
-  //Tomo lo recibido y lo guardo sin espacios
-  $username = trim($_POST["username"]);
-  $secretAnswer = trim($_POST["secretAnswer"]);
-
-  //Valido cada dato
-  if($username == ""){
-    $errorUsername = "Completá tu nombre de usuario!";
-    $hayErrores = true;
-  }
-  if($secretAnswer == ""){
-    $errorPassword = "Completá tu respuesta secreta!";
-    $hayErrores = true;
-  }
-  if ($_POST) {
-  $selected_question= $_POST["question"];
-  }
-
-  // Si no hay ningún error compruebo que coincidan los datos ingresados con los almacenados
-      if(!$hayErrores){
-
-        if($username !== $usuarioGuardadoEnArray["username"]){
-          $errorUsernameVerify = "El nombre de usuario que ingresaste es incorrecto";
-          $hayErroresDeVerificacion = true;
-        }
-        if($selected_question !== $usuarioGuardadoEnArray["question"]){
-          $errorQuestionVerify = "La pregunta seleccionada es incorrecta";
-          $hayErroresDeVerificacion = true;
-        }
-        if(!password_verify($secretAnswer, $usuarioGuardadoEnArray["secretAnswer"])){
-          $errorSecretAnswerVerify = "La respuesta secreta que ingresaste es incorrecta";
-          $hayErroresDeVerificacion = true;
-        }
-        //Si los datos coinciden con los almacenados, redirijo al usuario
-          if(!$hayErroresDeVerificacion){
-          header('Location: recoverPass.php');
-          }
-        }
-
-
-
-
-
-
-}
-
-?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/stylesunified.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <title>Food Season - Recuperar contraseña</title>
-  </head>
+@extends("template")
+@section("title")
+  Foodseason - Olvidé mi contraseña
+@endsection
+@section("body")
   <body class = "forgotten-recover-body">
-    <?php include("partials/header.php") ?>
 
     <section class="register" id="login">
           <div class="container">
@@ -120,7 +42,7 @@ if($_POST){
           </div>
     </section>
 
-
+@endsection
 
 
 

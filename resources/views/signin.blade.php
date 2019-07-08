@@ -5,6 +5,7 @@ Foodseason - Iniciar sesión
 @endsection
 
 @section("body")
+    @include('\partials\header')
   <body class ="signin-signup-body">
 
     <section class="register" id="login">

@@ -1,7 +1,3 @@
-<?php
-session_start();
-
- ?>
 
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
@@ -11,19 +7,16 @@ session_start();
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="color">
       <ul class="navbar-nav mr-auto">
-        <?php if(!isset($_SESSION['username'])){?>
-        <li class="nav-item active">
-           <a class="nav-link" href="signin.php">Ingresar</a>
+        @if(!isset($_SESSION['username']))
+        {{'<li class="nav-item active">
+           <a class="nav-link" href="#">Ingresar</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="signup.php">Registrarse</a>
-        </li>
-
-      <?php
-      }
-      ?>
+          <a class="nav-link" href="#">Registrarse</a>
+        </li>'}}
+      @endif
       <li class="nav-item active">
-        <a class="nav-link" href="dhfaq.php">FAQ's</a>
+        <a class="nav-link" href="#">FAQ's</a>
       </li>
       <!-- <?php if(isset($_SESSION['username'])){?>
       <li class="nav-item dropdown">
@@ -40,7 +33,7 @@ session_start();
       }
       ?> -->
       <li class="dropdown">
-          <button onclick="myFunction()" class="dropbtn"><?php if(isset($_SESSION['username'])){echo $_SESSION['username'];} ?></button>
+          <button onclick="myFunction()" class="dropbtn">@if(isset($_SESSION['username'])){{$_SESSION['username']}} @endif</button>
           <div id="myDropdown" class="dropdown-content">
             <a href="editprofile.php">Editar perfil  <i class="fas fa-user-edit"></i></a>
             <a href="logout.php">Cerrar sesión  <i class="fas fa-door-open"></i></a>

@@ -1,129 +1,10 @@
-<?php
-//Defino variables vacías para cada campo a completar
-$email = "";
-$username = "";
-$password = "";
-$passwordConfirm = "";
-$secretAnswerConfirm = "";
-$secretAnswer="";
-//Defino variables para cada error posible
-$errorUsername = "";
-$errorEmail = "";
-$errorPassword = "";
-$errorPicture = "";
-$errorSecretAnswer="";
-$hayErrores = false;
-
-//Si llega algo por POST
-
-if($_POST){
-
-  //Tomo lo recibido y lo guardo sin espacios
-  $username = trim($_POST["username"]);
-  $email = trim($_POST["email"]);
-  $password = trim($_POST["password"]);
-  $passwordConfirm = trim($_POST["passwordConfirm"]);
-  $secretAnswer = trim($_POST["secretAnswer"]);
-  $secretAnswerConfirm = trim($_POST["secretAnswerConfirm"]);
-  $profilePicture = $_FILES["profilePicture"];
-  $selected_question= $_POST["question"];
-
-  //Valido cada dato
-  if($username == ""){
-    $errorUsername = "Completá tu nombre de usuario!";
-    $hayErrores = true;
-  }
-  if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-    $errorEmail = "El email que ingresaste no es válido";
-    $hayErrores = true;
-  }
-  if($secretAnswer == ""){
-    $errorSecretAnswer = "Debes tener una respuesta secreta para poder recuperar tu contraseña";
-    $hayErrores = true;
-  }else if($secretAnswer != $secretAnswerConfirm){
-    $errorSecretAnswer = "Las respuestas secretas que ingresaste no coinciden!";
-    $hayErrores = true;
-  }
-  if($password == ""){
-    $errorPassword = "Completá tu contraseña!";
-    $hayErrores = true;
-  }
-  else if (strlen($password)<4)
-    {
-      $errorPassword = "Tu contraseña debe tener al menos 4 caracteres!";
-      $hayErrores = true;
-    }else if($password != $passwordConfirm){
-      $errorPassword = "Las contraseñas que ingresaste no coinciden!";
-      $hayErrores = true;
-    }
-
-  //Si recibo una foto de perfil
-
-  if(isset($_FILES["profilePicture"])){
-      //si el dato de error es OK...
-    if($_FILES["profilePicture"]["error"] === UPLOAD_ERR_OK){
-      //guardo el nombre del archivo
-      $pictureName = $_FILES["profilePicture"]["name"];
-      //guardo el nombre temporal del archivo
-      $origen = $_FILES["profilePicture"]["tmp_name"];
-      //uso la informacion del path que es la url, para tomar y guardar la extension
-      $ext = pathinfo($pictureName,PATHINFO_EXTENSION);
-
-      $destino = "";
-      $destino = $destino."archivos/";
-      //genero la ruta donde guardo el archivo
-      $destino = $destino.$username."fotodeperfil.".$ext;
-
-      //guardo el archivo con esta funcion
-      move_uploaded_file($origen,$destino);
-      $errorPicture = "Subiste tu foto con éxito!";
-      }
-    }else{
-        $errorPicture = "Ups! Hubo un error al subir tu foto";
-        $hayErrores = true;
-    }
-
-// Si no hay ningún error guardo los datos validados en un array asociativo
-    if(!$hayErrores){
-      $userArray = [
-      "username"=> $username,
-      "email"=> $email,
-      "profilePicture" => $username."profilePicture.".$ext,
-      "question" => $selected_question,
-      "secretAnswer" => password_hash($secretAnswer, PASSWORD_DEFAULT),
-      "password" => password_hash($password, PASSWORD_DEFAULT)];
-      $userJson = json_encode($userArray);
-      file_put_contents('usuarios.json',$userJson);
-      header('Location: signin.php');
-    }
-
-
-
-
-}
-
-
-
-
-
-?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/stylesunified.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <title>Food Season - Registrarse</title>
-  </head>
+@extends("template")
+@section("title")
+Foodseason - Registrarse
+@endsection
+@section("body")
+    @include('\partials\header')
   <body class ="signin-signup-body">
-    <?php include("partials/header.php") ?>
 
     <section class="register" id="register">
           <div class="container-signin-signup">
@@ -134,23 +15,23 @@ if($_POST){
 
     		   <h3 class="form-signup-heading">¡Registrate!</h3>
     		   <div class="form-group">
-    		    <input name="email" type="text" class="form-control" placeholder="Email" value="<?=$email?>">
-            <?= $errorEmail ?>
+    		    <input name="email" type="text" class="form-control" placeholder="Email" value="">
+
     		   </div>
     		   <div class="form-group">
-    		    <input name="username" type="text" class="form-control" placeholder="Usuario" value="<?=$username?>">
-            <?= $errorUsername ?>
+    		    <input name="username" type="text" class="form-control" placeholder="Usuario" value="">
+
            </div>
             <div class="form-group">
     		    <input name="profilePicture" type="file" value="">
-            <?= $errorPicture ?>
+
     		   </div>
     		   <div class="form-group">
-    		    <input type="password" class="form-control" name="password" placeholder="Contraseña" value="<?=$password?>">
-            <?= $errorPassword ?>
+    		    <input type="password" class="form-control" name="password" placeholder="Contraseña" value="">
+
            </div>
             <div class="form-group">
-    		    <input type="password" class="form-control" name="passwordConfirm" placeholder="Confirmar contraseña" value= "<?=$passwordConfirm?>">
+    		    <input type="password" class="form-control" name="passwordConfirm" placeholder="Confirmar contraseña" value= "">
     		   </div>
            <div class="form-group">
              <select class="form-control" name="question" >
@@ -161,11 +42,11 @@ if($_POST){
              </select>
            </div>
            <div class="form-group">
-            <input type="password" class="form-control" name="secretAnswer" placeholder="Ingresa tu respuesta secreta" value= "<?=$secretAnswer?>">
+            <input type="password" class="form-control" name="secretAnswer" placeholder="Ingresa tu respuesta secreta" value= "">
            </div>
-           <?= $errorSecretAnswer ?>
+
            <div class="form-group">
-          <input type="password" class="form-control" name="secretAnswerConfirm" placeholder="Confirma tu respuesta secreta" value= "<?=$secretAnswerConfirm?>">
+          <input type="password" class="form-control" name="secretAnswerConfirm" placeholder="Confirma tu respuesta secreta" value= "">
          </div>
     		   <button class="btn btn-warning btn-signin-signup" style="width:100%" type="submit" name="submit">Crear cuenta</button>
     		   <br/><br>
@@ -185,3 +66,4 @@ if($_POST){
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
+@endsection
