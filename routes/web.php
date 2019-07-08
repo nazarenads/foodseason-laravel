@@ -37,6 +37,7 @@ Route::get('/signup', function () {
 });
 Route::get('/profile', function () {
     return view('profile');
+
 });Route::get('/feed', function () {
     return view('feed');
 });
