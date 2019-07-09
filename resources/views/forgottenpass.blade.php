@@ -4,7 +4,7 @@
 @endsection
 @section("body")
   <body class = "forgotten-recover-body">
-
+    @include("partials\header")
     <section class="register" id="login">
           <div class="container">
            <div class="formulario">
@@ -13,9 +13,7 @@
     		  <form action="forgottenPass.php" method="post" class="form-signup">
     		   <h3 class="form-signup-heading">¡Recuperemos tu contraseña!</h3>
     		   <div class="form-group">
-    		    <input name="username" type="text" class="form-control" placeholder="Usuario" value="<?= $username ?>">
-            <?= $errorUsername ?>
-            <?= $errorUsernameVerify ?>
+    		    <input name="username" type="text" class="form-control" placeholder="Usuario" value="">
            </div>
            <div class="form-group">
              <select class="form-control" name="question" >
@@ -24,13 +22,9 @@
                <option value="comida">Nombre de tu comida favorita.</option>
                <option value="infancia">Nombre de tu mejor amigo de la infancia.</option>
              </select>
-             <?= $errorQuestionVerify ?>
-
            </div>
            <div class="form-group">
-            <input type="password" class="form-control" name="secretAnswer" placeholder="Ingresa tu respuesta secreta" value= "<?=$secretAnswer?>">
-            <?= $errorSecretAnswer ?>
-            <?= $errorSecretAnswerVerify ?>
+            <input type="password" class="form-control" name="secretAnswer" placeholder="Ingresa tu respuesta secreta" value= "">
            </div>
     		   <button class="btn btn-warning" style="width:50%" id="submit" type="submit" name="subm">Recuperar contraseña</button>
     		   <br/><br>
