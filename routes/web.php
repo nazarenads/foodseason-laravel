@@ -39,7 +39,7 @@ Route::get('/profile', function () {
     return view('profile');
 
 });Route::get('/feed', function () {
-    return view('feed');
+    return view('feed', 'RecipeController@show');
 });
 Route::get('/editprofile', function () {
     return view('editprofile');
