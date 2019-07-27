@@ -7,30 +7,39 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="color">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-           <a class="nav-link" href="#">Ingresar</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Registrarse</a>
-        </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">FAQ's</a>
-      </li>
-      <!-- <?php if(isset($_SESSION['username'])){?>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
-        <?=  $_SESSION['username'] ?>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="editprofile.php"><i class="fas fa-user-edit"></i></a>
-          <a class="dropdown-item" href="logout.php"><i class="fas fa-door-open"></i></a>
-          <div class="dropdown-divider"></div>
-        </div>
-      </li>
-      <?php
-      }
-      ?> -->
 
+        @guest
+            <li class="nav-item active">
+              <a class="nav-link" href="">FAQ's</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Ingresar') }}</a>
+            </li>
+            @if (Route::has('register'))
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+                </li>
+            @endif
+        @else
+          <li class="nav-item dropdown">
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                  {{ Auth::user()->name }} <span class="caret"></span>
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href=""><i class="fas fa-user-edit"></i></a>
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                     onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+              </div>
+          </li>
+      @endguest
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Buscar recetas" aria-label="Search">
