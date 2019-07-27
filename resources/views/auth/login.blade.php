@@ -49,7 +49,7 @@ Foodseason - Iniciar sesión
            </div>
 
            <div class="form-group">
-             <button style="width:100%" id="submit" type="submit" name="subm" class="btn btn-warning btn-signin-signup">
+             <button type="submit" class="btn btn-warning btn-signin-signup" style="width:100%">
                  {{ __('Ingresar') }}
              </button>
              <br/><br>

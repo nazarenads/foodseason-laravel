@@ -43,9 +43,9 @@ Foodseason - Registrarse
               @enderror
            </div>
             <div class="form-group">
-    		    <input type="password" class="form-control" name="passwordConfirm" placeholder="Confirmar contraseña" value= "">
+    		   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
     		   </div>
-           <div class="form-group">
+           {{-- <div class="form-group">
              <select class="form-control" name="question" >
                <option selected>Selecciona una pregunta de seguridad</option>
                <option value="mascota">Nombre de tu primer mascota. </option>
@@ -59,7 +59,7 @@ Foodseason - Registrarse
 
            <div class="form-group">
           <input type="password" class="form-control" name="secretAnswerConfirm" placeholder="Confirma tu respuesta secreta" value= "">
-         </div>
+         </div> --}}
            <button type="submit" class="btn btn-warning btn-signin-signup" style="width:100%">
                {{ __('Crear cuenta') }}
            </button>
