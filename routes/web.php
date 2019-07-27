@@ -44,3 +44,7 @@ Route::get('/profile', function () {
 Route::get('/editprofile', function () {
     return view('editprofile');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
