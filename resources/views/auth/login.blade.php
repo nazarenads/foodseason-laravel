@@ -20,12 +20,13 @@ Foodseason - Iniciar sesión
 
 
            <div class="form-group">
-    		    <input name="username" type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Usuario" value="{{ old('username') }}">
-              @error('username')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
+             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+
+               @error('email')
+                 <span class="invalid-feedback" role="alert">
+                   <strong>{{ 'Email incorrecto' }}</strong>
+                 </span>
+               @enderror
            </div>
 
 
@@ -34,7 +35,7 @@ Foodseason - Iniciar sesión
     		    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Contraseña" value="">
               @error('password')
                   <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
+                      <strong>{{ 'Contraseña incorrecta' }}</strong>
                   </span>
               @enderror
 
