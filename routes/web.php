@@ -23,23 +23,24 @@ Route::get('/faqs', function () {
 
 Route::get('/profile', function () {
     return view('profile');
+})->name('profile')->middleware('auth');
 
-});Route::get('/feed', function () {
+Route::get('/feed', function () {
     return view('feed', 'RecipeController@show');
 });
 Route::get('/editprofile', function () {
     return view('editprofile');
-})->name('editprofile');
+})->name('editprofile')->middleware('auth');
 
 Route::get('/recipe', function () {
     return view('recipe');
 });
 Route::get('/newfriends', function () {
     return view('newfriends');
-});
+})->middleware('auth');
 Route::get('/feed', function () {
     return view('feed');
-});
+})->middleware('auth');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
