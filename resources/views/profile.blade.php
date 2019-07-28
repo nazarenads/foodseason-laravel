@@ -23,6 +23,10 @@ Foodseason - Profile
               </div>
               <div class="description text-center">
                   <p>Biografia </p>
+                  <li class="nav-item">
+                    <a href="editprofile" class="btn btn-light"> <i class="fas fa-user-edit"></i> Editar perfil </a>
+
+                  </li>
               </div>
       <div class="row">
         <div class="col-md-6 ml-auto mr-auto">
@@ -51,6 +55,7 @@ Foodseason - Profile
                                   Seguidores
                               </a>
                           </li>
+
                         </ul>
                       </div>
           </div>

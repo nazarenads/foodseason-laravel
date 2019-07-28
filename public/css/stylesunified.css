@@ -28,6 +28,18 @@ body{
 .forgotten-recover-body{
   background: linear-gradient(rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../img/bg-table.jpg") no-repeat center center fixed;
 }
+.editprofile-body{
+  background: linear-gradient(rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../img/editprofilefondo.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.body-friends{
+  background: linear-gradient(rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../img/nrefriends.jpg") no-repeat center center fixed;
+  background-size: cover;
+
+    margin-top:20px;
+}
+
 .container-signin-signup{
   display: flex;
   justify-content: center;
@@ -126,9 +138,14 @@ p{
 }
 
 .avatar img{
-  width:200px;
-  height:200px;
-  border-radius:50%;
+  /* cambia estos dos valores para definir el tamaño de tu círculo */
+height: 250px;
+width: 250px;
+/* los siguientes valores son independientes del tamaño del círculo */
+background-repeat: no-repeat;
+background-position: 50%;
+border-radius: 50%;
+background-size: 100% auto;
   display:block;
   margin:auto;
   margin-top: 20px;
@@ -302,22 +319,129 @@ article h3{
 
 /* friends card */
 
-.follower-name{
-  color: black;
+
+.card-box-friends{
+    padding: 20px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    background-color: #fff;
 }
 
-.follower-avatar{
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  display:inline-block;
+.thumb-lg {
+    height: 88px;
+    width: 88px;
+}
+.img-thumbnail {
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: auto;
+}
+.text-pink {
+    color: #e42e24;
+}
+.btn-rounded {
+    border-radius: 2em;
+    color:white; background-color: #008f95;
+}
+.text-muted {
+    color: #fff;
+}
+
+.followavatar img {
+  /* cambia estos dos valores para definir el tamaño de tu círculo */
+height: 100px;
+width: 100px;
+/* los siguientes valores son independientes del tamaño del círculo */
+
+border-radius: 50%;
+
+}
+/* edit profile */
+
+
+.editprofile{
+align-items: center;
+}
+
+.followavatar{
+  /* cambia estos dos valores para definir el tamaño de tu círculo */
+height: 100px;
+width: 100px;
+/* los siguientes valores son independientes del tamaño del círculo */
+
+border-radius: 50%;
+
+  display:block;
   margin:auto;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
-.follower{
-  margin: 10px;
-  border-radius: 5px;
-  box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
-  color: #888888;
+.panel {
+  box-shadow: none;
+}
+.panel-heading {
+  border-bottom: 0;
+}
+.panel-title {
+  font-size: 17px;
+  color: white;
+}
+.panel-title > small {
+  font-size: .75em;
+  color: #fff;
+}
+.panel-body *:first-child {
+  margin-top: 0;
+}
+.panel-footer {
+  border-top: 0;
+}
+
+.panel-default > .panel-heading {
+    color: #333333;
+    background-color: transparent;
+    border-color: rgba(0, 0, 0, 0.07);
+}
+
+form label {
+    color: #999999;
+}
+
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+    text-align: right;
+    margin-bottom: 0;
+  }
+}
+
+.profile__contact-info-icon {
+    float: left;
+    font-size: 18px;
+    color: #999999;
+}
+.profile__contact-info-body {
+    overflow: hidden;
+    color: #999999;
+}
+.profile-avatar {
+  /* cambia estos dos valores para definir el tamaño de tu círculo */
+height: 200px;
+width: 200px;
+/* los siguientes valores son independientes del tamaño del círculo */
+background-repeat: no-repeat;
+background-position: 50%;
+border-radius: 50%;
+background-size: 100% auto;
+  position: relative;
+  margin: 0px auto;
+  margin-top: 196px;
+  border: 4px solid #f3f3f3;
+}
+
+.control-label{
+  margin:0px;
+  display: inline;
 }
