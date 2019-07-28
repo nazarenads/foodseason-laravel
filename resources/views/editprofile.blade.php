@@ -4,6 +4,7 @@ Foodseason - Editar perfil
 @endsection
 
 @section("body")
+    @include('\partials\header')
   <body class= "editprofile-body">
     <div class="container">
       <br>

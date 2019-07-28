@@ -20,9 +20,7 @@ Route::get('/home', function () {
 Route::get('/faqs', function () {
     return view('faqs');
 });
-Route::get('/forgottenpassword', function () {
-    return view('forgottenpass');
-});
+
 Route::get('/logout', function () {
     return view('logout');
 });
@@ -43,7 +41,8 @@ Route::get('/profile', function () {
 });
 Route::get('/editprofile', function () {
     return view('editprofile');
-});
+})->name('editprofile');
+
 Route::get('/recipe', function () {
     return view('recipe');
 });
