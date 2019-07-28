@@ -19,40 +19,28 @@ Route::get('/home', function () {
 });
 Route::get('/faqs', function () {
     return view('faqs');
-});
-Route::get('/forgottenpassword', function () {
-    return view('forgottenpass');
-});
-Route::get('/logout', function () {
-    return view('logout');
-});
-Route::get('/recoverpassword', function () {
-    return view('recoverpass');
-});
-Route::get('/signin', function () {
-    return view('signin');
-});
-Route::get('/signup', function () {
-    return view('signup');
-});
+})->name('faqs');
+
 Route::get('/profile', function () {
     return view('profile');
+})->name('profile')->middleware('auth');
 
-});Route::get('/feed', function () {
+Route::get('/feed', function () {
     return view('feed', 'RecipeController@show');
 });
 Route::get('/editprofile', function () {
     return view('editprofile');
-});
+})->name('editprofile')->middleware('auth');
+
 Route::get('/recipe', function () {
     return view('recipe');
 });
 Route::get('/newfriends', function () {
     return view('newfriends');
-});
+})->middleware('auth');
 Route::get('/feed', function () {
     return view('feed');
-});
+})->middleware('auth');
 Auth::routes();
 // 
 // Route::get('/home', 'HomeController@index')->name('home');

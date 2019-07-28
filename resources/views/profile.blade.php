@@ -16,7 +16,7 @@ Foodseason - Profile
                             <img src="https://images.unsplash.com/photo-1525315526278-e96d97c67c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" class="img-raised rounded-circle img-fluid" >
                         </div>
                         <div class="name">
-                            <h3 class="title text-center">Username</h3>
+                            <h3 class="title text-center">  {{ Auth::user()->username }}</h3>
                         </div>
                     </div>
                 </div>
