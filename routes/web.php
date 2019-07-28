@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 Route::get('/home', function () {
     return view('home');
-});
+})->name('home');
 Route::get('/faqs', function () {
     return view('faqs');
 })->name('faqs');
@@ -42,5 +42,5 @@ Route::get('/feed', function () {
     return view('feed');
 })->middleware('auth');
 Auth::routes();
-// 
+//
 // Route::get('/home', 'HomeController@index')->name('home');
