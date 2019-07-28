@@ -1,7 +1,7 @@
 
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-    <a class="navbar-brand" href="home.php"><h1><i class="fas fa-carrot"></i> Food Season</h1></a><br>
+    <a class="navbar-brand" href=""><h1><i class="fas fa-carrot"></i> Food Season</h1></a><br>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,11 +27,11 @@
               </a>
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href=""><i class="fas fa-user-edit"></i></a>
+                  <a class="dropdown-item" href=""><i class="fas fa-user-edit"></i>  {{ __('Editar perfil') }}</a>
                   <a class="dropdown-item" href="{{ route('logout') }}"
                      onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
-                      {{ __('Logout') }}
+                      {{ __('Cerrar sesión') }}
                   </a>
 
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
