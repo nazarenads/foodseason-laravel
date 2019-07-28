@@ -43,7 +43,7 @@ Foodseason - Registrarse
               @enderror
            </div>
             <div class="form-group">
-    		   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+    		   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Repetí tu contraseña">
     		   </div>
            {{-- <div class="form-group">
              <select class="form-control" name="question" >
