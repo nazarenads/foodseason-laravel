@@ -12,23 +12,25 @@ Foodseason - Editar perfil
       <br>
       	<hr>
     	<div class="row">
-          <!-- <div class="col-12">
+      <div class="col-12">
             <div class="text-center">
-              <img src="img\profiledefault.png" class="avatar-editprofile" alt="avatar">
+              <img src="img\profiledefault.png" class="avatar-editprofile" alt="avatar" style="width:100px; height:100px; border-radius:50%;">
                 <br>
               <div class="form-group">
+                 @csrf
                 <br>
                 <br>
+              <label for="">{{ __('Subir foto de perfil') }}</label>
               <input name="profilePicture" type="file" value="">
              </div>
-            </div> -->
+            </div>
 <br>
 <br>
             <div class="formulario">
            <form action="editprofile.php" method="post" class="form-editprofile" enctype="multipart/form-data">
              @csrf
              <div class="form-group">
-               <label for="username"><h4>Tu nombre de usuario es:</h4></label>
+               <label for="username"><h4>Tu nombre de usuario es: {{Auth::user()->username}}</h4></label>
               <h4></h4>
              </div>
 

@@ -19,20 +19,8 @@ Route::get('/home', function () {
 });
 Route::get('/faqs', function () {
     return view('faqs');
-});
+})->name('faqs');
 
-Route::get('/logout', function () {
-    return view('logout');
-});
-Route::get('/recoverpassword', function () {
-    return view('recoverpass');
-});
-Route::get('/signin', function () {
-    return view('signin');
-});
-Route::get('/signup', function () {
-    return view('signup');
-});
 Route::get('/profile', function () {
     return view('profile');
 
