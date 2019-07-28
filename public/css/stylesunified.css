@@ -97,3 +97,227 @@ p{
   color: white;
   width: 100%;
 }
+
+/* css del profile */
+.profile-body{
+  background: linear-gradient(rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../img/profile.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+.page-header {
+    height: 100px;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    align-items: center;
+}
+
+.main-raised {
+    margin: -60px 30px 0;
+    border-radius: 6px;
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+}
+
+.main {
+    background: #FFF;
+    position: relative;
+    z-index: 3;
+}
+
+.avatar img{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  display:block;
+  margin:auto;
+  margin-top: 20px;
+}
+.img-fluid, .img-thumbnail {
+    max-width: 100%;
+    height: auto;
+}
+
+.title {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    min-height: 32px;
+    color: #3C4858;
+    font-weight: 700;
+    font-family: "Raleway","Times New Roman",serif;
+}
+
+p {
+    font-size: 14px;
+    margin: 0 0 10px;
+}
+
+.profile-page .profile-tabs {
+    margin-top: 4.284rem;
+}
+
+.myrecipes{
+  margin: 20px;
+}
+.myrecipes .card{
+  margin:5px;
+}
+
+.nav-pills, .nav-tabs {
+    border: 0;
+    border-radius: 3px;
+    padding: 0 15px;
+}
+
+.nav .nav-item {
+    position: relative;
+    margin: 0 2px;
+}
+
+.nav-pills.nav-pills-icons .nav-item .nav-link {
+    border-radius: 4px;
+}
+
+.nav-pills .nav-item .nav-link.active {
+    color: #fff;
+    background-color: #008F95;
+    box-shadow: 0 5px 20px 0 rgba(0,0,0,.2), 0 13px 24px -11px rgba(0,0,0,10);
+}
+
+.nav-pills .nav-item .nav-link {
+    line-height: 24px;
+    font-size: 12px;
+    font-weight: 500;
+    min-width: 100px;
+    color: #383737;
+    transition: all .3s;
+    border-radius: 30px;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.nav-pills .nav-item .nav-link:not(.active):hover {
+    background-color: rgba(200,200,200,.2);
+}
+
+.nav-pills .nav-item i {
+    display: block;
+    font-size: 30px;
+    padding: 15px 0;
+}
+
+.tab-space {
+    padding: 20px 0 50px;
+}
+
+
+.profile-page .profile .name{
+    margin-top: -80px;
+}
+
+
+.tab-content>.active {
+    display: block;
+}
+
+.myrecipe h5{
+  color: black;
+}
+
+/* recipe */
+
+.recipe-title{
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  background-color: rgba(233,176,0, 0.8);
+  color: #FFFFFF;
+  font-size: 2.3em;
+  margin: 30px auto;
+}
+
+a {
+	display: inline-block;
+	text-decoration: none;
+}
+
+img {
+	width: 100%;
+}
+
+.special-link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 120px;
+	height: 35px;
+	border-radius: 3px;
+	background-color: #E24E42;
+	color: #FFF;
+	font-size: 0.8em;
+	margin: 30px auto;
+}
+
+.big-recipe, .small-recipe {
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+	color: #888888;
+}
+
+.small-recipe {
+	padding-bottom: 20px;
+	margin-bottom: 30px;
+	margin-top: 10px;
+}
+
+.small-news-date {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	height: 25px;
+	padding: 0 10px;
+	background-color: #999999;
+	color: #FFFFFF;
+}
+article p{
+  margin: 4px;
+}
+article h3{
+  margin: 4px;
+}
+
+@media (min-width: 1100px) {
+
+
+	.news-with-small-image img {
+		float: left;
+		margin-right: 15px;
+		max-width: 150px;
+	}
+}
+
+/* friends card */
+
+.follower-name{
+  color: black;
+}
+
+.follower-avatar{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  display:inline-block;
+  margin:auto;
+  margin-top: 10px;
+}
+
+.follower{
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+  color: #888888;
+}

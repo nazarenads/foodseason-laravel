@@ -44,7 +44,15 @@ Route::get('/profile', function () {
 Route::get('/editprofile', function () {
     return view('editprofile');
 });
-
+Route::get('/recipe', function () {
+    return view('recipe');
+});
+Route::get('/newfriends', function () {
+    return view('newfriends');
+});
+Route::get('/feed', function () {
+    return view('feed');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
