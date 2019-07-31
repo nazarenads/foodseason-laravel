@@ -6,13 +6,13 @@
     @extends("layouts.template")
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
-  @include('\partials\header')
+    @include('partials.header')
   @section("title")
   Foodseason - Profile
   @endsection
   @section("body")
   <body class="editprofile-body">
-<div class="container editprofile">
+<div class="container editprofile" style="justify">
 <div class="row">
   <div class="col-xs-12 col-sm-9">
     <form class="form-horizontal">
@@ -39,18 +39,21 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label">Biografia</label>
+            <label class="col-sm-2 control-label">Biografía</label>
             <div class="col-sm-10">
               <textarea rows="3" class="form-control"></textarea>
+            </div>
+            </div>
+            </div>
       <div class="panel panel-default">
         <div class="panel-heading">
-        <h4 class="panel-title">Informacion</h4>
+        <h4 class="panel-title">Información</h4>
         </div>
         <div class="form-group">
-          <label class="col-sm-2 control-label">Pais</label>
+          <label class="col-sm-2 control-label">País</label>
           <div class="col-sm-10">
             <select class="form-control">
-              <option selected="">Elegir pais</option>
+              <option selected="">Elegir país</option>
               <option>Argentina</option>
               <option>Canada</option>
               <option>Italia</option>
@@ -61,7 +64,7 @@
         </div>
         <div class="panel-body">
           <div class="form-group">
-            <label class="col-sm-2 control-label">Numero de telefono</label>
+            <label class="col-sm-2 control-label">Numero de teléfono</label>
             <div class="col-sm-10">
               <input type="tel" class="form-control">
             </div>
@@ -96,14 +99,14 @@
             <div class="col-sm-10 col-sm-offset-2">
               <div class="checkbox">
                 <input type="checkbox" id="checkbox_1">
-                <label for="checkbox_1">Deseo que mi cuenta sea publica</label>
+                <label for="checkbox_1">Deseo que mi cuenta sea pública</label>
               </div>
             </div>
           </div>
           <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
-              <button type="submit" class="btn btn-danger" style="background-color: #e24e42; color:white">Submit</button>
-              <button type="reset" class="btn btn-warning" style="background-color: #E9B000; color:white">Cancel</button>
+              <button type="submit" class="btn btn-danger" style="background-color: #e24e42; color:white">Guardar</button>
+              <button type="reset" class="btn btn-warning" style="background-color: #E9B000; color:white">Cancelar</button>
             </div>
           </div>
         </div>

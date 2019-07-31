@@ -4,7 +4,7 @@ Foodseason - Recuperar contraseña
 @endsection
 @section("body")
   <body class= "forgotten-recover-body">
-    <?php include("partials/header.php") ?>
+      @include('partials.header')
 
     <section class="register" id="register">
           <div class="container">

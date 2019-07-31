@@ -3,7 +3,7 @@
 Foodseason - Registrarse
 @endsection
 @section("body")
-    @include('\partials\header')
+      @include('partials.header')
   <body class ="signin-signup-body">
 
     <section class="register" id="register">

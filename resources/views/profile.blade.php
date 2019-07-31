@@ -4,7 +4,7 @@ Foodseason - Profile
 @endsection
 @section("body")
   <body class="profile-body">
-      @include('\partials\header')
+        @include('partials.header')
     <div class="container">
     <div class="page-header header-filter" data-parallax="true"></div>
   <div class="main main-raised">
@@ -25,9 +25,10 @@ Foodseason - Profile
                   <p>Biografia </p>
                   <li class="nav-item">
                     <a href="editprofile" class="btn btn-light"> <i class="fas fa-user-edit"></i> Editar perfil </a>
-
+                    <a href="editprofile" class="btn btn-light"> <i class="fab fa-nutritionix"></i> Nueva receta </a>
                   </li>
               </div>
+              <br>
       <div class="row">
         <div class="col-md-6 ml-auto mr-auto">
                       <div class="profile-tabs">

@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 })->name('home');
+
 Route::get('/faqs', function () {
     return view('faqs');
 })->name('faqs');
@@ -41,6 +42,11 @@ Route::get('/newfriends', function () {
 Route::get('/feed', function () {
     return view('feed');
 })->middleware('auth');
+
+// Route::get('/recipe', 'RecipeController@create');
+Route::post('/recipe', 'RecipeController@store');
+Route::post('/recipe/{id}', 'RecipeController@destroy');
+
 Auth::routes();
 //
 // Route::get('/home', 'HomeController@index')->name('home');
