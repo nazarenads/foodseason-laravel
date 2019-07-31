@@ -4,7 +4,7 @@ Foodseason - Inicio
 @endsection
 @section("body")
   <body class = "home-body">
-    @include('\partials\header')
+    @include('partials.header')
     <section>
       <div class="container-fluid">
         <div class="row d-flex">
