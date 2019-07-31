@@ -51,7 +51,8 @@ class RecipeController extends Controller
 
       $recipe = new Recipe();
       $recipe->title = $request['title'];
-      $recipe->RecipeBody = $request['RecipeBody'];
+      $recipe->recipeBody = $request['recipeBody'];
+      $recipe->photoName = $request['photoName'];
       $recipe->user_id = Auth::user()->id;
       $recipe->save();
 

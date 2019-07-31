@@ -28,15 +28,15 @@ Foodseason - Registrarse
                   <input type="text" name="subtitle" class="form-control">
                 </div>
               </div> --}}
-              <div class="col-sm-10">
+              {{-- <div class="col-sm-10">
                 <label class="col-sm-2 control-label">Foto:</label>
-                <input type="image" name="picture" class="form-control">
+                <input type="file" name="photoName" class="form-control">
               </div>
-            </div>
+            </div> --}}
           <div class="form-group">
             <div class="col-sm-10">
             <label class="col-sm-2 control-label">Procedimiento e ingredientes:</label>
-              <textarea rows="3" name="RecipeBody" class="form-control"></textarea>
+              <textarea rows="3" name="recipeBody" class="form-control"></textarea>
             </div>
             </div>
             <div class="form-group">
