@@ -42,7 +42,7 @@ Foodseason - FAQS
             <h2 class="mb-0">
               <i class="fas fa-hamburger"></i>
               <br>
-                <button class="btn btn-outline-light collapsed"  style="background-color: #E24E42" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <button class="btn btn-outline-light collapsed"  style="background-color: #E24E42" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne";>
                   ¿Qué es Food Season?
               </button>
             </h2>
