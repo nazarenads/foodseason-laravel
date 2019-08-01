@@ -5,7 +5,7 @@ Foodseason - Registrarse
 @section("body")
       @include('partials.header')
   <body class ="signin-signup-body">
-    <div class="container editprofile" style="justify">
+    <div class="container editprofile" style="margin-top:50px;">
     <div class="row">
       <div class="col-xs-12 col-sm-9">
         <h4>¡Vamos! ¡Sube una receta!</h4>

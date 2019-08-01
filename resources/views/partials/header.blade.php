@@ -16,15 +16,21 @@
             </li>
             @if (Route::has('register'))
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('¿No tenes cuenta? ¡Registrate!') }}</a>
                 </li>
             @endif
         @else
-          <li class="nav-item dropdown">
+
+        <li class="nav-item active">
+          <a class="nav-link" href="feed"> Inicio </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="profile"> Mi perfil</a>
+        </li>
+        <li class="nav-item dropdown">
               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                   {{ Auth::user()->username }} <span class="caret"></span>
               </a>
-
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{{ route('editprofile') }}"><i class="fas fa-user-edit"></i>  {{ __('Editar perfil') }}</a>
                   <a class="dropdown-item" href="{{ route('logout') }}"
@@ -38,6 +44,7 @@
                   </form>
               </div>
           </li>
+
       @endguest
       </ul>
       <form class="form-inline my-2 my-lg-0">
