@@ -75,6 +75,7 @@ Foodseason - Profile
       					</article>
 
       				</div>
+
       				<!-- /column-8 -->
 
       				<!-- column-4 -->

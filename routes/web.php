@@ -33,9 +33,6 @@ Route::get('/editprofile', function () {
     return view('editprofile');
 })->name('editprofile')->middleware('auth');
 
-Route::get('/recipe', function () {
-    return view('recipe');
-});
 Route::get('/newfriends', function () {
     return view('newfriends');
 })->middleware('auth');
@@ -44,8 +41,9 @@ Route::get('/feed', function () {
 })->middleware('auth');
 
 // Route::get('/recipe', 'RecipeController@create');
-Route::post('/recipe', 'RecipeController@store');
-Route::post('/recipe/{id}', 'RecipeController@destroy');
+Route::post('/addRecipe', 'RecipeController@store');
+Route::post('/recipe/{id}', 'RecipeController@show');
+
 
 Auth::routes();
 //

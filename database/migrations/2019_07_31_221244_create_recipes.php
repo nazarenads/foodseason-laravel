@@ -24,6 +24,7 @@ class CreateRecipes extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('tag_id')->nullable();
             $table->foreign('tag_id')->references('id')->on('tags');
+            $table->string('image', 150);
 
             $table->timestamps();
 

@@ -36,17 +36,17 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-      // $rules = [
-      //   'title' => "required",
-      //   'user_id' => "required",
-      //   'recipeBody' => "required",
-      //   'photoName' => "required|image|mimes:jpeg,png,jpg,gif|max:2048"
-      // ];
-      // $messages = [
-      //   'required' => "Este campo es obligatorio"
-      // ];
-      //
-      // $this->validate($request, $rules, $messages);
+
+      $rules = [
+        'title' => "required",
+        'recipeBody' => "required",
+        'photoName' => "required|image|mimes:jpeg,png,jpg,gif|max:2048"
+      ];
+      $messages = [
+        'required' => "Este campo es obligatorio"
+      ];
+
+      $this->validate($request, $rules, $messages);
 
       $recipe = new Recipe();
 
@@ -57,6 +57,7 @@ class RecipeController extends Controller
       $recipe->recipeBody = $request['recipeBody'];
       // $recipe->photoName = $request['photoName'];
       $recipe->user_id = Auth::user()->id;
+      $recipe->image = $file;
       $recipe->save();
 
       return redirect('profile');
@@ -68,10 +69,11 @@ class RecipeController extends Controller
      * @param  \App\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //te muestras una receta
-    }
+     public function show($id)
+       {
+         $recipe = Recipe::find($id);
+         return view('recipe', compact('recipe'));
+       }
 
     /**
      * Show the form for editing the specified resource.
