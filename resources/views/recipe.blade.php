@@ -28,17 +28,23 @@ Foodseason - Registrarse
                   <input type="text" name="subtitle" class="form-control">
                 </div>
               </div> --}}
-              {{-- <div class="col-sm-10">
+              <div class="col-sm-10">
                 <label class="col-sm-2 control-label">Foto:</label>
                 <input type="file" name="photoName" class="form-control">
               </div>
-            </div> --}}
+              @if($errors->has('photoName'))
+              <p>{{ $errors->first('photoName') }}</p>
+              @endif
+            </div>
           <div class="form-group">
             <div class="col-sm-10">
             <label class="col-sm-2 control-label">Procedimiento e ingredientes:</label>
               <textarea rows="3" name="recipeBody" class="form-control"></textarea>
             </div>
             </div>
+            @if($errors->has('recipeBody'))
+            <p>{{ $errors->first('recipeBody') }}</p>
+            @endif
             <div class="form-group">
               <div class="col-sm-10">
 

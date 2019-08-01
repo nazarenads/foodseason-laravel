@@ -36,23 +36,26 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-      // $reglas = [
-      //     'title' => 'required | alpha',
-      //     'subtitle' => 'required | string',
-      //     'recipe' => 'required | string'
+      // $rules = [
+      //   'title' => "required",
+      //   'user_id' => "required",
+      //   'recipeBody' => "required",
+      //   'photoName' => "required|image|mimes:jpeg,png,jpg,gif|max:2048"
+      // ];
+      // $messages = [
+      //   'required' => "Este campo es obligatorio"
       // ];
       //
-      // $mensajes = [
-      //   'required' => 'El campo es obligatorio',
-      //   'alpha' => 'El campo debe contener solo eltrass',
-      // ];
-      //
-      // $this->validate($request, $reglas, $mensajes);
+      // $this->validate($request, $rules, $messages);
 
       $recipe = new Recipe();
+
+      $path = $request->file('photoName')->store('public/recipesPictures');
+      $file = basename($path);
+
       $recipe->title = $request['title'];
       $recipe->recipeBody = $request['recipeBody'];
-      $recipe->photoName = $request['photoName'];
+      // $recipe->photoName = $request['photoName'];
       $recipe->user_id = Auth::user()->id;
       $recipe->save();
 
