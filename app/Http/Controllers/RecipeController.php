@@ -47,7 +47,7 @@ class RecipeController extends Controller
 
       $recipe = new Recipe();
 
-      $path = $request->file('photoName')->store('public/recipesPictures');
+      $path = $request->file('photoName')->store('storage/storage/recipesPictures');
       $file = basename($path);
 
       $recipe->title = $request['title'];
