@@ -23,10 +23,7 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //devuelve la vsta con e formulario para crear receta
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -60,7 +57,7 @@ class RecipeController extends Controller
       $recipe->image = $file;
       $recipe->save();
 
-      return redirect('profile');
+      return redirect('recipe/{id}');
     }
 
     /**
@@ -69,6 +66,11 @@ class RecipeController extends Controller
      * @param  \App\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
+     public function create()
+     {
+         return view('addRecipe');
+     }
+
      public function show($id)
        {
          $recipe = Recipe::find($id);

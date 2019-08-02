@@ -41,8 +41,11 @@ Route::get('/feed', function () {
 })->middleware('auth');
 
 // Route::get('/recipe', 'RecipeController@create');
+
+Route::get('/recipe/{id}', 'RecipeController@show');
+Route::get('/addRecipe', 'RecipeController@create');
 Route::post('/addRecipe', 'RecipeController@store');
-Route::post('/recipe/{id}', 'RecipeController@show');
+
 
 
 Auth::routes();
