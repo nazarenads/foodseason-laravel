@@ -57,7 +57,7 @@ class RecipeController extends Controller
       $recipe->image = $file;
       $recipe->save();
 
-      return redirect('recipe/{id}');
+      return redirect('addRecipe');
     }
 
     /**
