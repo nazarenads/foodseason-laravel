@@ -25,7 +25,7 @@ Foodseason - Profile
                   <p>Biografia </p>
                   <li class="nav-item">
                     <a href="editprofile" class="btn btn-light"> <i class="fas fa-user-edit"></i> Editar perfil </a>
-                    <a href="recipe" class="btn btn-light"> <i class="fab fa-nutritionix"></i> Nueva receta </a>
+                    <a href="addRecipe" class="btn btn-light"> <i class="fab fa-nutritionix"></i> Nueva receta </a>
                   </li>
               </div>
               <br>
