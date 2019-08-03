@@ -31,9 +31,11 @@ class ProfileController extends Controller
             //'email' => 'string|email|max:255',
             //'bio' =>  'string|max:140',
             //'teléfono'=> 'min:10',
-            'password' => 'required|string|min:6'
+            'password' => 'required|string|min:6',
+            'newpassword' => 'required|string|min:6|confirmed'
         ],[
-          'required'=>'Tenés que ingresar tu contraseña'
+          'required'=>'Tenés que ingresar tu contraseña',
+          'confirmed'=>'Tus contraseñas no coinciden'
         ]);
 
         // Get current user
@@ -52,43 +54,24 @@ class ProfileController extends Controller
         $user->teléfono = $request['teléfono'];
         $user->país= $request['país'];
 
-        // IF the password matches then persist user record to database
+        // Check if the password matches
         if (!(Hash::check($request->get('password'), Auth::user()->password))) {
             $errorPassword = "Contraseña incorrecta";
-            return view('editprofile');
+          return view('editprofile', compact('errorPassword'));
         }
-        $user->save();
+        //Check if the new password is different from the old password
+        if (!(Hash::check($request->get('newpassword'), Auth::user()->password))) {
+           $errorNewPassword = "Tu nueva contraseña no puede ser igual a tu contraseña anterior!";;
+           return view('editProfile', compact('errorNewPassword'));
+       }
+       $user->password = bcrypt($request->get('newpassword'));
+
+       //persists user info to database
+       $user->save();
 
         // Return user back and show a flash message
         return redirect('/home');
     }
 
-    public function updatePassword(Request $request){
-        //Primero, chequea que la contraseña original sea la correcta.
-        if (!(Hash::check($request->get('password'), Auth::user()->password))) {
-            $errorPassword = "Contraseña incorrecta!";
-            return view('editprofile');
-        }
-        if (!(Hash::check($request->get('newpassword'), Auth::user()->password))) {
-           $errorNewPassword = "Tu nueva contraseña no puede ser igual a tu contraseña anterior!";;
-           return view('editProfile');
-       }
-       $mensajes = [
-            'required' => 'El campo no puede estar vacio',
-            'string' => 'El campo debe ser del tipo texto',
-            'min' => 'La contraseña debe tener al menos 6 caracteres',
-            'confirmed' => 'Las contraseñas no coinciden',
-        ];
-        $reglas = [
-            // 'currentPassword' => 'required',
-            'password' => 'required|string|min:6|confirmed',
-        ];
-        $this->validate($request, $reglas, $mensajes);
-        $user = Auth::user();
-        $user->password = bcrypt($request->get('newpassword'));
-        $user->save();
-        return redirect('/home');
-
-      }
 
 }
