@@ -24,19 +24,32 @@ class ProfileController extends Controller
         // Form validation
         $request->validate([
             'username'              =>  'required',
-            'profile_image'     =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'profile_image'     =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'email' => 'required|string|email|max:255|unique:users',
+            // 'bio' =>  'string|max:140',
+            // 'teléfono'=> 'int|min:10',
+            // 'password' =>  'string|min:6|confirmed'
         ]);
 
         // Get current user
         $user = User::findOrFail(auth()->user()->id);
-        // Set user name
-        $user->username = $request->input('username');
-        //$user->email = $request->input('email');
-        //$user->bio = $request->input('bio');
 
+
+        //Set user name
+        // $user->username = $request->input('username');
+        // $user->email = $request->input('email');
+        // if ($request->has('bio')) {
+        // $user->bio = $request->input('bio');
+        // }
+        // if ($request->has('país')) {
+        // $user->país = $request->input('país');
+        // }
+        // if ($request->has('teléfono')) {
+        // $user->teléfono = $request->input('teléfono');
+        // }
         // Check if a profile image has been uploaded
         if ($request->has('profile_image')) {
-            $path = $request->file('profile_image')->store('storage/storage/profilePictures');
+            $path = $request->file('profile_image')->store('/public/profilePictures');
             $file = basename($path);
             $user->profile_image = $file;
         }

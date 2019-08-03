@@ -8,11 +8,15 @@
 <div class="container editprofile" style="justify">
 <div class="row">
   <div class="col-xs-12 col-sm-9">
-    <form class="form-horizontal" action="" method="POST" role="form" enctype="multipart/form-data">
+    <form class="form-horizontal" action="editprofile" method="POST" role="form" enctype="multipart/form-data">
       @csrf
         <div class="panel panel-default">
           <div class="panel-body text-center">
-           <img src="/storage/storage/profilePictures/{{auth()->user()->profile_image}}" class="img-circle profile-avatar" alt="User avatar">
+            @if(auth()->user()->profile_image)
+            <img src="storage/profilePictures/{{auth()->user()->profile_image}}" class="img-circle profile-avatar" alt="User avatar">
+            @else
+              <img src="img/profiledefault.png" class="img-circle profile-avatar" alt="User avatar">
+            @endif
           </div>
           <div class="form-group">
             <label for="profile_image" class="col-md-4 col-form-label text-md-right">Foto de perfil</label>
@@ -62,7 +66,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Numero de teléfono</label>
             <div class="col-sm-10">
-              <input type="tel" class="form-control" name='telefono'>
+              <input type="tel" class="form-control" name='teléfono'>
             </div>
           </div>
         </div>
@@ -82,15 +86,19 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Nueva contraseña</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control">
+              <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Nueva contraseña" value="">
+                 @error('password')
+                     <span class="invalid-feedback" role="alert">
+                         <strong>{{ $message }}</strong>
+                     </span>
+                 @enderror
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Confirmar contraseña</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control">
+              <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Repetí tu nueva contraseña">
             </div>
-          </div>
           <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
               <div class="checkbox">
