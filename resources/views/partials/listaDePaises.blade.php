@@ -260,7 +260,7 @@ $paises = array (
 
 @endphp
 
-<select class="form-control">
+<select class="form-control" name='país'>
   <option selected="">Elegir país</option>
   @foreach ($paises as $key=>$pais)
    <option value="{{ $key }}">{{ $pais }}</option>

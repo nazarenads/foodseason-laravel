@@ -80,24 +80,24 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Contraseña actual</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control">
+              <input type="password" class="form-control" name="password">
+              @error('password')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Nueva contraseña</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Nueva contraseña" value="">
-                 @error('password')
-                     <span class="invalid-feedback" role="alert">
-                         <strong>{{ $message }}</strong>
-                     </span>
-                 @enderror
+              <input type="password" class="form-control" name="newpassword" placeholder="Nueva contraseña" value="">
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Confirmar contraseña</label>
             <div class="col-sm-10">
-              <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Repetí tu nueva contraseña">
+              <input id="password-confirm" type="password" class="form-control" name="newpassword_confirmation" placeholder="Repetí tu nueva contraseña">
             </div>
           <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">

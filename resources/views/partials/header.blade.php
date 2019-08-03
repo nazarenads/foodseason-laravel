@@ -29,8 +29,8 @@
         </li>
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            @if (auth()->user()->profile_image)
-              <img src="storage/profilePictures/{{auth()->user()->profile_image}}" style="width: 40px; height: 40px; border-radius: 50%;">
+            @if (Auth::user()->profile_image)
+              <img src="storage/profilePictures/{{Auth::user()->profile_image}}" style="width: 40px; height: 40px; border-radius: 50%;">
             @else
               <img src="img/profiledefault.png" style="width: 40px; height: 40px; border-radius: 50%;">
             @endif
