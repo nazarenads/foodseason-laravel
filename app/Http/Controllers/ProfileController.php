@@ -32,7 +32,7 @@ class ProfileController extends Controller
             //'bio' =>  'string|max:140',
             //'teléfono'=> 'min:10',
             'password' => 'required|string|min:6',
-            'newpassword' => 'required|string|min:6|confirmed'
+            //'newpassword' => 'required|string|min:6|confirmed'
         ],[
           'required'=>'Tenés que ingresar tu contraseña',
           'confirmed'=>'Tus contraseñas no coinciden'
@@ -60,11 +60,11 @@ class ProfileController extends Controller
           return view('editprofile', compact('errorPassword'));
         }
         //Check if the new password is different from the old password
-        if (!(Hash::check($request->get('newpassword'), Auth::user()->password))) {
-           $errorNewPassword = "Tu nueva contraseña no puede ser igual a tu contraseña anterior!";;
-           return view('editProfile', compact('errorNewPassword'));
-       }
-       $user->password = bcrypt($request->get('newpassword'));
+       //  if (!(Hash::check($request->get('newpassword'), Auth::user()->password))) {
+       //     $errorNewPassword = "Tu nueva contraseña no puede ser igual a tu contraseña anterior!";;
+       //     return view('editProfile', compact('errorNewPassword'));
+       // }
+       // $user->password = bcrypt($request->get('newpassword'));
 
        //persists user info to database
        $user->save();
