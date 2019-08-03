@@ -26,7 +26,7 @@ Route::get('/faqs', function () {
 //     return view('profile');
 // })->name('profile')->middleware('auth');
 
-Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::get('/editprofile', 'ProfileController@index');
 Route::post('/editprofile', 'ProfileController@updateProfile')->name('editprofile');
 
 

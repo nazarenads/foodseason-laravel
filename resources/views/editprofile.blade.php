@@ -12,7 +12,7 @@
       @csrf
         <div class="panel panel-default">
           <div class="panel-body text-center">
-           <img src="https://images.unsplash.com/photo-1430931071372-38127bd472b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" class="img-circle profile-avatar" alt="User avatar">
+           <img src="/storage/storage/profilePictures/{{auth()->user()->profile_image}}" class="img-circle profile-avatar" alt="User avatar">
           </div>
           <div class="form-group">
             <label for="profile_image" class="col-md-4 col-form-label text-md-right">Foto de perfil</label>
