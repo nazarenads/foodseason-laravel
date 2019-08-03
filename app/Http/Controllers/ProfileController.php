@@ -19,7 +19,7 @@ class ProfileController extends Controller
       $this->middleware('auth');
   }
 
-  public function index()
+  public function create()
   {
       return view('editprofile');
   }

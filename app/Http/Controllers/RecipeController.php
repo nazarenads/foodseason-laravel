@@ -13,10 +13,10 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //indexa todas las recetas que tengas en la base de datps
-    }
+     public function index(){
+         $listOfRecipes = Recipe::paginate(5);
+         return view('index', compact('listOfRecipes'));
+     }
 
     /**
      * Show the form for creating a new resource.
@@ -57,7 +57,7 @@ class RecipeController extends Controller
       $recipe->image = $file;
       $recipe->save();
 
-      return redirect('addRecipe');
+      return redirect()->route('recipePorId', ['id' => $recipe->id]);
     }
 
     /**
@@ -76,6 +76,14 @@ class RecipeController extends Controller
          $recipe = Recipe::find($id);
          return view('recipe', compact('recipe'));
        }
+
+       public function tag($id){
+        $recipes = Recipe::where('tag_id', $id)->paginate(5);
+
+        $recipes = Tag::find($id);
+
+        return view('tag', compact('recipes', 'tags'));
+    }
 
     /**
      * Show the form for editing the specified resource.

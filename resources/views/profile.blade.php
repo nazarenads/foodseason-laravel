@@ -22,7 +22,7 @@ Foodseason - Profile
                 </div>
               </div>
               <div class="description text-center">
-                  <p>Biografia </p>
+                  <p>{{ Auth::user()->bio }}</p>
                   <li class="nav-item">
                     <a href="editprofile" class="btn btn-light"> <i class="fas fa-user-edit"></i> Editar perfil </a>
                     <a href="addRecipe" class="btn btn-light"> <i class="fab fa-nutritionix"></i> Nueva receta </a>

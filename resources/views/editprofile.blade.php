@@ -84,7 +84,6 @@
               @if(isset($errorPassword))
                     <span class="error-form">{{$errorPassword}}</span>
                 @endif
-              <span class="error-form">{{$errors->first('password')}}</span>
             </div>
           </div>
           <div class="form-group">
@@ -122,4 +121,3 @@
 </div>
   </body>
   @endsection
-</html>
