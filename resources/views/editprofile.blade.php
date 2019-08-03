@@ -48,7 +48,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Biografía</label>
             <div class="col-sm-10">
-              <textarea rows="3" class="form-control" name="bio"></textarea>
+              <textarea rows="3" class="form-control" name="bio" value="{{ old('bio', auth()->user()->bio) }}"></textarea>
             </div>
             </div>
             </div>
@@ -66,7 +66,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Numero de teléfono</label>
             <div class="col-sm-10">
-              <input type="tel" class="form-control" name='teléfono'>
+              <input type="tel" class="form-control" name='teléfono' value="{{ old('teléfono', auth()->user()->teléfono) }}">
             </div>
           </div>
         </div>
@@ -81,23 +81,25 @@
             <label class="col-sm-2 control-label">Contraseña actual</label>
             <div class="col-sm-10">
               <input type="password" class="form-control" name="password">
-              @error('password')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
+              @if(isset($errorPassword))
+                    <span class="error-form">{{$errorPassword}}</span>
+                @endif
+              <span class="error-form">{{$errors->first('password')}}</span>
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Nueva contraseña</label>
             <div class="col-sm-10">
               <input type="password" class="form-control" name="newpassword" placeholder="Nueva contraseña" value="">
+              @if(isset($errorNewPassword))
+                    <span class="error-form">{{$errorNewPassword}}</span>
+                @endif
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Confirmar contraseña</label>
             <div class="col-sm-10">
-              <input id="password-confirm" type="password" class="form-control" name="newpassword_confirmation" placeholder="Repetí tu nueva contraseña">
+              <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Repetí tu nueva contraseña">
             </div>
           <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
