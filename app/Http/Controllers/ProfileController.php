@@ -31,7 +31,9 @@ class ProfileController extends Controller
             //'email' => 'string|email|max:255',
             //'bio' =>  'string|max:140',
             //'teléfono'=> 'min:10',
-            'password' => 'required|string|min:6|confirmed'
+            'password' => 'required|string|min:6'
+        ],[
+          'required'=>'Tenés que ingresar tu contraseña'
         ]);
 
         // Get current user
