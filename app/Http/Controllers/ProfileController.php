@@ -64,8 +64,9 @@ class ProfileController extends Controller
        //     $errorNewPassword = "Tu nueva contraseña no puede ser igual a tu contraseña anterior!";;
        //     return view('editProfile', compact('errorNewPassword'));
        // }
-       // $user->password = bcrypt($request->get('newpassword'));
-
+       if($request['newpassword']){
+         $user->password = bcrypt($request->get('newpassword'));
+       }
        //persists user info to database
        $user->save();
 
