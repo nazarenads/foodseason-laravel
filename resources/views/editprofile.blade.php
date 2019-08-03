@@ -55,21 +55,14 @@
         <div class="form-group">
           <label class="col-sm-2 control-label">País</label>
           <div class="col-sm-10">
-            <select class="form-control">
-              <option selected="">Elegir país</option>
-              <option>Argentina</option>
-              <option>Canada</option>
-              <option>Italia</option>
-              <option>Estonia</option>
-              <option>Francia</option>
-            </select>
+            @include('partials.listaDePaises')
           </div>
         </div>
         <div class="panel-body">
           <div class="form-group">
             <label class="col-sm-2 control-label">Numero de teléfono</label>
             <div class="col-sm-10">
-              <input type="tel" class="form-control">
+              <input type="tel" class="form-control" name='telefono'>
             </div>
           </div>
         </div>
