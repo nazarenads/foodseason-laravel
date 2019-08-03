@@ -28,9 +28,12 @@
           <a class="nav-link" href="profile"> Mi perfil</a>
         </li>
         <li class="nav-item dropdown">
-              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="profile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                  {{ Auth::user()->username }} <span class="caret"></span>
-              </a>
+          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            @if (auth()->user()->profile_image)
+              <img src="{{ asset(auth()->user()->profile_image) }}" style="width: 40px; height: 40px; border-radius: 50%;">
+            @endif
+            {{ Auth::user()->username }} <span class="caret"></span>
+          </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{{ route('editprofile') }}"><i class="fas fa-user-edit"></i>  {{ __('Editar perfil') }}</a>
                   <a class="dropdown-item" href="{{ route('logout') }}"

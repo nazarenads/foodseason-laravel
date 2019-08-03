@@ -22,16 +22,20 @@ Route::get('/faqs', function () {
     return view('faqs');
 })->name('faqs');
 
-Route::get('/profile', function () {
-    return view('profile');
-})->name('profile')->middleware('auth');
+// Route::get('/profile', function () {
+//     return view('profile');
+// })->name('profile')->middleware('auth');
+
+Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::post('/editprofile', 'ProfileController@updateProfile')->name('editprofile');
+
 
 Route::get('/feed', function () {
     return view('feed', 'RecipeController@show');
 });
-Route::get('/editprofile', function () {
-    return view('editprofile');
-})->name('editprofile')->middleware('auth');
+// Route::get('/editprofile', function () {
+//     return view('editprofile');
+// })->name('editprofile')->middleware('auth');
 
 Route::get('/newfriends', function () {
     return view('newfriends');
