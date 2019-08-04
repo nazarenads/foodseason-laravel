@@ -13,7 +13,13 @@ Foodseason - Profile
                 <div class="col-md-6 ml-auto mr-auto">
                    <div class="profile">
                         <div class="avatar center">
-                            <img src="https://images.unsplash.com/photo-1525315526278-e96d97c67c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" class="img-raised rounded-circle img-fluid" >
+                          @if (Auth::user()->profile_image)
+                            <img src="storage/profilePictures/{{Auth::user()->profile_image}}"  class="img-raised rounded-circle img-fluid">
+                          @else
+                            <img src="img/profiledefault.png"  class="img-raised rounded-circle img-fluid">
+                          @endif
+                          {{ Auth::user()->username }} 
+
                         </div>
                         <div class="name">
                             <h3 class="title text-center">  {{ Auth::user()->username }}</h3>
