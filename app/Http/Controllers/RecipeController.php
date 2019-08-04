@@ -24,14 +24,6 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function indexOfTags()
-     {
-       $listOfTags = Tag::all();
-       // $listOfTagNames = Tag::get('tagName');
-
-       return view('addRecipe', compact('listOfTags'));
-     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -40,7 +32,6 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-
       $rules = [
         'title' => "required",
         'recipeBody' => "required",
@@ -69,6 +60,51 @@ class RecipeController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Recipe  $recipe
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $listOfTags = Tag::all();
+        $recipe = Recipe::find($id);
+        return view('editrecipe', compact('recipe', 'listOfTags'));
+    }
+
+    public function editRecipe(Request $request, $id){
+      $rules = [
+        'title' => "required",
+        'recipeBody' => "required",
+        'photoName' => "required|image|mimes:jpeg,png,jpg,gif|max:2048"
+      ];
+      $messages = [
+        'required' => "Este campo es obligatorio"
+      ];
+
+      $this->validate($request, $rules, $messages);
+
+      //traigo la receta original que quiero editar
+      $recipe = Recipe::find($id);
+
+      if($request->file('photoName')){
+      $path = $request->file('photoName')->store('public/recipesPictures');
+      $file = basename($path);
+      }
+
+      $recipe->title = $request['title'];
+      $recipe->recipeBody = $request['recipeBody'];
+      // $recipe->photoName = $request['photoName'];
+      $recipe->user_id = Auth::user()->id;
+      $recipe->image = $file;
+      $recipe->tag_id = $request['tag'];
+      $recipe->save();
+
+      return redirect('/profile');
+    }
+
+
+    /**
      * Display the specified resource.
      *
      * @param  \App\Recipe  $recipe
@@ -76,7 +112,8 @@ class RecipeController extends Controller
      */
      public function create()
      {
-         return view('addRecipe');
+        $listOfTags = Tag::all();
+        return view('addRecipe', compact('listOfTags'));
      }
 
      public function show($id)
@@ -92,24 +129,14 @@ class RecipeController extends Controller
            return view('profile', compact('listOfRecipes', 'user_id'));
          }
 
-       public function tag($id){
-        $recipes = Recipe::where('tag_id', $id)->paginate(5);
+       public function filterByTagName($tagName){
 
-        $recipes = Tag::find($id);
+        $recipes = Recipe::where('tagName', $tagName)->paginate(5)->get();
 
-        return view('tag', compact('recipes', 'tags'));
+        return view('index', compact('recipes'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Recipe  $recipe
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
