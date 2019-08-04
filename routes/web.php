@@ -51,6 +51,7 @@ Route::post('/editprofile', 'ProfileController@updateProfile')->name('editprofil
 Route::get('/newfriends', function () {
     return view('newfriends');
 })->middleware('auth');
+Route::get('/profile', 'RecipeController@showUserRecipes');
 
 
 //

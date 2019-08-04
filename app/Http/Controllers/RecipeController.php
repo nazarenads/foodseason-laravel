@@ -63,6 +63,7 @@ class RecipeController extends Controller
       $recipe->user_id = Auth::user()->id;
       $recipe->image = $file;
       $recipe->tag_id = $request['tag'];
+      $recipe->save();
 
       return view('recipe', compact('recipe'));
     }
@@ -83,6 +84,13 @@ class RecipeController extends Controller
          $recipe = Recipe::find($id);
          return view('recipe', compact('recipe'));
        }
+
+       public function showUserRecipes()
+         {
+           $user_id = Auth::user()->id;
+           $listOfRecipes = Recipe::where('user_id', $user_id)->get();
+           return view('profile', compact('listOfRecipes', 'user_id'));
+         }
 
        public function tag($id){
         $recipes = Recipe::where('tag_id', $id)->paginate(5);
@@ -125,4 +133,7 @@ class RecipeController extends Controller
     {
         //
     }
+
+
+
 }
