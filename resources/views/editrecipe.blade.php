@@ -15,7 +15,7 @@ Foodseason - Editar receta
     <div class="row">
       <div class="col-xs-12 col-sm-9">
         <h4>Editá tu receta!</h4>
-        <form class="form-horizontal" action="editrecipe" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="/editrecipe/{{ $recipe->id }}" method="post" enctype="multipart/form-data">
           @csrf
           <div class="panel panel-default">
             <div class="panel-body">

@@ -81,7 +81,7 @@ class RecipeController extends Controller
     {
         $listOfTags = Tag::all();
         $recipe = Recipe::find($id);
-        return view('editrecipe', compact('recipe', 'listOfTags'));
+        return view('editrecipe', compact('listOfTags', 'recipe'));
     }
 
     /**
@@ -94,34 +94,34 @@ class RecipeController extends Controller
     public function update(Request $request, $id)
     {
       $rules = [
-        'title' => "required",
-        'recipeBody' => "required",
-        'photoName' => "required|image|mimes:jpeg,png,jpg,gif|max:2048"
+         'title' => "required",
+         'recipeBody' => "required",
+      //   'photoName' => "required|image|mimes:jpeg,png,jpg,gif|max:2048"
       ];
       $messages = [
-        'required' => "Este campo es obligatorio"
+         'required' => "Este campo es obligatorio"
       ];
-
+      //
       $this->validate($request, $rules, $messages);
 
       //traigo la receta original que quiero editar
-      $recipe = Recipe::find($id);
+      $recipe = Recipe::find($id); // esto no anda se ve, porque si lo devolvemos eventualmente algo se da cuenta que no es nada
 
-      // if($request->file('photoName')){
-      // $path = $request->file('photoName')->store('public/recipesPictures');
-      // $file = basename($path);
-      // $recipe->image = $file;
-      // }
-
+      if($request->file('photoName')){
+          $path = $request->file('photoName')->store('public/recipesPictures');
+          $file = basename($path);
+          $recipe->image = $file;
+      }
+      //
       $recipe->title = $request['title'];
       $recipe->recipeBody = $request['recipeBody'];
       // $recipe->photoName = $request['photoName'];
       $recipe->user_id = Auth::user()->id;
-
       $recipe->tag_id = $request['tag'];
       $recipe->save();
 
-      return redirect('/profile');
+      $listOfTags = Tag::all();
+      return redirect('/index');
     }
 
 
