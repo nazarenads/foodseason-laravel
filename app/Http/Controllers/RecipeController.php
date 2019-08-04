@@ -64,6 +64,7 @@ class RecipeController extends Controller
       $recipe->image = $file;
       $recipe->tag_id = $request['tag'];
 
+      return view('recipe', compact('recipe'));
     }
 
     /**

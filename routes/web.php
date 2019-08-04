@@ -37,7 +37,7 @@ Route::get('/newfriends', function () {
 
 
 //RECIPES ROUTES
-Route::get('/recipe/{id}', 'RecipeController@show')->name('recetasPorId');
+Route::get('/recipe/{id}', 'RecipeController@show');
 Route::get('/addRecipe', 'RecipeController@create')->name('crearRecetas');
 Route::post('/addRecipe', 'RecipeController@store')->name('guardarRecetas');
 //Route::get('/feed', 'RecipeController@index')->name('feed');
