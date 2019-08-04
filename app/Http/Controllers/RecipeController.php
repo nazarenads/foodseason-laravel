@@ -64,10 +64,6 @@ class RecipeController extends Controller
       $recipe->image = $file;
       $recipe->tag_id = $request['tag'];
 
-      $recipe->save();
-
-      return redirect('home');
-      //->route('recipePorId', ['id' => $recipe->id]);
     }
 
     /**
