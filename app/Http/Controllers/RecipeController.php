@@ -24,6 +24,18 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     /**
+      * Display the specified resource.
+      *
+      * @param  \App\Recipe  $recipe
+      * @return \Illuminate\Http\Response
+      */
+      public function create()
+      {
+         $listOfTags = Tag::all();
+         return view('addRecipe', compact('listOfTags'));
+      }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -43,20 +55,20 @@ class RecipeController extends Controller
 
       $this->validate($request, $rules, $messages);
 
-      $recipe = new Recipe();
+      $newrecipe = new Recipe();
 
       $path = $request->file('photoName')->store('public/recipesPictures');
       $file = basename($path);
 
-      $recipe->title = $request['title'];
-      $recipe->recipeBody = $request['recipeBody'];
+      $newrecipe->title = $request['title'];
+      $newrecipe->recipeBody = $request['recipeBody'];
       // $recipe->photoName = $request['photoName'];
-      $recipe->user_id = Auth::user()->id;
-      $recipe->image = $file;
-      $recipe->tag_id = $request['tag'];
-      $recipe->save();
+      $newrecipe->user_id = Auth::user()->id;
+      $newrecipe->image = $file;
+      $newrecipe->tag_id = $request['tag'];
+      $newrecipe->save();
 
-      return view('recipe', compact('recipe'));
+      return view('recipe', compact('newrecipe'));
     }
 
     /**
@@ -72,7 +84,15 @@ class RecipeController extends Controller
         return view('editrecipe', compact('recipe', 'listOfTags'));
     }
 
-    public function editRecipe(Request $request, $id){
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Recipe  $recipe
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
       $rules = [
         'title' => "required",
         'recipeBody' => "required",
@@ -87,34 +107,23 @@ class RecipeController extends Controller
       //traigo la receta original que quiero editar
       $recipe = Recipe::find($id);
 
-      if($request->file('photoName')){
-      $path = $request->file('photoName')->store('public/recipesPictures');
-      $file = basename($path);
-      }
+      // if($request->file('photoName')){
+      // $path = $request->file('photoName')->store('public/recipesPictures');
+      // $file = basename($path);
+      // $recipe->image = $file;
+      // }
 
       $recipe->title = $request['title'];
       $recipe->recipeBody = $request['recipeBody'];
       // $recipe->photoName = $request['photoName'];
       $recipe->user_id = Auth::user()->id;
-      $recipe->image = $file;
+
       $recipe->tag_id = $request['tag'];
       $recipe->save();
 
       return redirect('/profile');
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Recipe  $recipe
-     * @return \Illuminate\Http\Response
-     */
-     public function create()
-     {
-        $listOfTags = Tag::all();
-        return view('addRecipe', compact('listOfTags'));
-     }
 
      public function show($id)
        {
@@ -136,19 +145,6 @@ class RecipeController extends Controller
         return view('index', compact('recipes'));
     }
 
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Recipe  $recipe
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Recipe $recipe)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

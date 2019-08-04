@@ -5,9 +5,9 @@ Foodseason - Editar receta
 @section("body")
       @include('partials.header')
 
-      @php
-        dd($recipe);
-      @endphp
+      {{-- @php
+        dd($recipe->title);
+      @endphp --}}
 
 
   <body class ="signin-signup-body">
@@ -15,7 +15,7 @@ Foodseason - Editar receta
     <div class="row">
       <div class="col-xs-12 col-sm-9">
         <h4>Editá tu receta!</h4>
-        <form class="form-horizontal" action="addRecipe" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="editrecipe" method="post" enctype="multipart/form-data">
           @csrf
           <div class="panel panel-default">
             <div class="panel-body">
