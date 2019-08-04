@@ -13,7 +13,7 @@ Foodseason - Inicio
               <div class="card-body">
                 <h4 class="card-title"  style="margin-bottom: 15%;   font-size: 1.5em;" >¡Llegaste a la red de recetas más cómoda!</h4>
                 <p class="card-text">Encontrá y subí tus propias recetas con fotos y comentarios reales.</p>
-                <p class="card-text">¡Averigüá los ingredientes que usa tu vecina en su cocina que huele tan bien!</p>
+                <p class="card-text">¡Averiguá los ingredientes que usa tu vecina en su cocina que huele tan bien!</p>
                 @if(isset($_SESSION['username']))
                   {{"<a href=CRUDrecipes/uploadRecipe.php><button type='button' name='button'>Subir recetas</button></a>"}}
                 @endif
