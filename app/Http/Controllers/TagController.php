@@ -14,8 +14,13 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+      $listOfTags = Tag::all();
+      return view('addRecipe', compact('listOfTags'));
     }
+
+    // public function getTagId($tagName){
+    //   $tag_id = Tag::find($tagName)->id;
+    // }
 
     /**
      * Show the form for creating a new resource.

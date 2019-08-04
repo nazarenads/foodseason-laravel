@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Recipe;
+use App\Tag;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,13 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function indexOfTags()
+     {
+       $listOfTags = Tag::all();
+       // $listOfTagNames = Tag::get('tagName');
 
+       return view('addRecipe', compact('listOfTags'));
+     }
 
     /**
      * Store a newly created resource in storage.
@@ -55,9 +62,12 @@ class RecipeController extends Controller
       // $recipe->photoName = $request['photoName'];
       $recipe->user_id = Auth::user()->id;
       $recipe->image = $file;
+      $recipe->tag_id = $request['tag'];
+
       $recipe->save();
 
-      return redirect()->route('recipePorId', ['id' => $recipe->id]);
+      return redirect('home');
+      //->route('recipePorId', ['id' => $recipe->id]);
     }
 
     /**

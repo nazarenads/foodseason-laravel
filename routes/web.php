@@ -36,13 +36,13 @@ Route::get('/newfriends', function () {
 
 
 
-
 //RECIPES ROUTES
 Route::get('/recipe/{id}', 'RecipeController@show')->name('recetasPorId');
 Route::get('/addRecipe', 'RecipeController@create')->name('crearRecetas');
 Route::post('/addRecipe', 'RecipeController@store')->name('guardarRecetas');
 //Route::get('/feed', 'RecipeController@index')->name('feed');
 Route::get('/index', 'RecipeController@index')->name('indiceDeRecetas');
+Route::get('addRecipe', 'RecipeController@indexOfTags');
 
 //USERS AND PROFILES ROUTES
 Auth::routes();

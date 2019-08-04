@@ -8,7 +8,7 @@ Foodseason - Subir una receta
     <div class="container editprofile" style="margin-top:50px;">
     <div class="row">
       <div class="col-xs-12 col-sm-9">
-        <h4>¡Vamos! ¡Sube una receta!</h4>
+        <h4>¡Vamos! ¡Subí una receta!</h4>
         <form class="form-horizontal" action="addRecipe" method="post" enctype="multipart/form-data">
           @csrf
           <div class="panel panel-default">
@@ -46,9 +46,29 @@ Foodseason - Subir una receta
             <p>{{ $errors->first('recipeBody') }}</p>
             @endif
             <div class="form-group">
-              <div class="col-sm-10">
 
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                  {{-- Elige tu hashtag: --}}
+
+                      <select class="" name="tag">
+                          <option value="">Elegí la categoría de tu receta:</option>
+                        @foreach ($listOfTags as $tag)
+                          <option value="{{$tag['id']}}">{{$tag['tagName']}}</option>
+                        @endforeach
+                      </select>
+                    {{--
+                    <div class="col-sm-10">
+                    <div class="modal-body">
+                    @foreach ($listOfTags as $tag)
+                      <button type="button" class="btn btn-primary" name='tag' value="{{$tag['id']}}">{{$tag['tagName']}}</button>
+                    @endforeach
+                    </div>
+                    </div>
+                    --}}
+
+
+
+
+                  {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
                     Elige tu hashtag:
                   </button>
 
@@ -63,19 +83,9 @@ Foodseason - Subir una receta
                           </button>
                         </div>
                         <div class="modal-body">
-                          <button type="button" class="btn btn-primary">Vegana</button>
-                          <button type="button" class="btn btn-primary">Vegetariana</button>
-                          <button type="button" class="btn btn-primary">Salada</button>
-                          <button type="button" class="btn btn-primary">Dulce</button>
-                          <button type="button" class="btn btn-primary">Pastas</button>
-                          <button type="button" class="btn btn-primary">Carnes</button>
-                          <button type="button" class="btn btn-primary">Postres</button>
-                          <button type="button" class="btn btn-primary">Sin TACC</button>
-                          <button type="button" class="btn btn-primary">Light</button>
-                          <button type="button" class="btn btn-primary">China</button>
-                          <button type="button" class="btn btn-primary">Bebidas</button>
-                          <button type="button" class="btn btn-primary">Chocolatosa</button>
-                          <button type="button" class="btn btn-primary">Bomba de azúcar</button>
+                          @foreach ($listOfTags as $tag)
+                            <button type="button" class="btn btn-primary" name='tag' value="{{$tag['tagName']}}">{{$tag['tagName']}}</button>
+                          @endforeach
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -84,8 +94,8 @@ Foodseason - Subir una receta
                       </div>
                     </div>
                   </div>
-              </div>
-            </div>
+              </div> --}}
+
           </div>
 
               <div class="form-group">
