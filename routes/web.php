@@ -37,12 +37,15 @@ Route::get('/newfriends', function () {
 
 
 //RECIPES ROUTES
+Route::get('/index', 'RecipeController@index');
+Route::get('/index/{tagName}', 'RecipeController@filterByTagName');
+Route::get('/addRecipe', 'RecipeController@create');
+Route::post('/addRecipe', 'RecipeController@store');
+Route::get('editrecipe/{id}', 'RecipeController@edit');
+Route::post('/editrecipe/{id}', 'RecipeController@editRecipe');
+Route::get('/delete/{id}', 'RecipeController@showDestroy');
+Route::post('/delete', 'RecipeController@destroy');
 Route::get('/recipe/{id}', 'RecipeController@show');
-Route::get('/addRecipe', 'RecipeController@create')->name('crearRecetas');
-Route::post('/addRecipe', 'RecipeController@store')->name('guardarRecetas');
-//Route::get('/feed', 'RecipeController@index')->name('feed');
-Route::get('/index', 'RecipeController@index')->name('indiceDeRecetas');
-Route::get('addRecipe', 'RecipeController@indexOfTags');
 
 //USERS AND PROFILES ROUTES
 Auth::routes();
