@@ -53,13 +53,13 @@ Foodseason - Profile
                           <li class="nav-item">
                               <a class="nav-link" href="following" role="tab" data-toggle="tab">
                                 <i class="fas fa-users"></i>
-                                  Seguidos
+                                  Seguidos: <span class="badge badge-secondary">{{$user->follows->count()}}</span>
                               </a>
                           </li>
                           <li class="nav-item">
                               <a class="nav-link" href="followers" role="tab" data-toggle="tab">
                                 <i class="fas fa-user-friends"></i>
-                                  Seguidores
+                                  Seguidores: <span class="badge badge-secondary">{{$user->followers->count()}}</span>
                               </a>
                           </li>
 

@@ -47,7 +47,6 @@ Route::get('/delete/{id}', 'RecipeController@showDestroy');
 Route::post('/delete', 'RecipeController@destroy');
 Route::get('/recipe/{id}', 'RecipeController@show');
 
-//Route::get('/feed', 'RecipeController@index')->name('feed');
 
 
 //USERS AND PROFILES ROUTES
@@ -58,7 +57,11 @@ Route::get('/newfriends', function () {
     return view('newfriends');
 })->middleware('auth');
 Route::get('/profile', 'RecipeController@showUserRecipes');
-
+Route::get('/{username}', 'UsersController@show');
+Route::get('/{username}/followers', 'UsersController@followers');
+Route::get('/{username}/follows', 'UsersController@follows');
+Route::post('/{username}/follow', 'UsersController@follow')->middleware('auth');
+Route::post('/{username}/unfollow', 'UsersController@unfollow');
 
 //
 // Route::get('/home', 'HomeController@index')->name('home');
