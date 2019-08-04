@@ -57,7 +57,7 @@ class RecipeController extends Controller
       $recipe->image = $file;
       $recipe->save();
 
-      return redirect()->route('recipePorId', ['id' => $recipe->id]);
+      return redirect()->route('recetasPorId', ['id' => $recipe->id]);
     }
 
     /**
