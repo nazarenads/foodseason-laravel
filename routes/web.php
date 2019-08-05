@@ -43,8 +43,8 @@ Route::get('/addRecipe', 'RecipeController@create');
 Route::post('/addRecipe', 'RecipeController@store');
 Route::get('/editrecipe/{id}', 'RecipeController@edit');
 Route::post('/editrecipe/{id}', 'RecipeController@update');
-Route::get('/delete/{id}', 'RecipeController@showDestroy');
-Route::post('/delete', 'RecipeController@destroy');
+Route::get('/deleterecipe/{id}', 'RecipeController@showDestroy');
+Route::post('/deleterecipe/{id}', 'RecipeController@destroy');
 Route::get('/recipe/{id}', 'RecipeController@show');
 
 

@@ -106,7 +106,7 @@ Foodseason - Editar receta
 
               <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2">
-                  <button type="submit" class="btn btn-danger" style="background-color: #e24e42; color:white">Subir</button>
+                  <button type="submit" class="btn btn-danger" style="background-color: #e24e42; color:white">Enviar</button>
                   <button type="reset" class="btn btn-warning" style="background-color: #E9B000; color:white">Cancelar</button>
                 </div>
               </div>
