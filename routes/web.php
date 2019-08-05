@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +11,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('home');
+})->name('index');
 
 Route::get('/home', function () {
     return view('home');
@@ -18,10 +22,10 @@ Route::get('/home', function () {
 Route::get('/faqs', function () {
     return view('faqs');
 })->name('faqs');
-
-Route::get('/profile', function () {
-    return view('profile');
-})->name('profile')->middleware('auth');
+//
+// Route::get('/profile', function () {
+//     return view('profile');
+// })->name('profile')->middleware('auth');
 
 // Route::get('/editprofile', 'ProfileController@index');
 // Route::post('/editprofile', 'ProfileController@updateProfile')->name('editprofile');
@@ -29,6 +33,7 @@ Route::get('/profile', function () {
 // Route::get('/editprofile', function () {
 //     return view('editprofile');
 // })->name('editprofile')->middleware('auth');
+
 
 Route::get('/newfriends', function () {
     return view('newfriends');
@@ -55,9 +60,10 @@ Auth::routes();
 Route::get('/editprofile', 'ProfileController@create')->middleware('auth');
 Route::post('/editprofile', 'ProfileController@updateProfile')->name('editprofile')->middleware('auth');
 Route::get('/newfriends', function () {
-    return view('newfriends');
+    $users=User::Where("id","!=",Auth::user()->id)->withCount(['followers','follows'])->get();
+    return view('newfriends', compact("users"));
 })->middleware('auth');
-Route::get('/profile', 'RecipeController@showUserRecipes');
+Route::get('/profile', 'RecipeController@showUserRecipes')->name('profile');
 Route::get('/{username}', 'UsersController@show');
 Route::get('/{username}/followers', 'UsersController@followers');
 Route::get('/{username}/follows', 'UsersController@follows');
