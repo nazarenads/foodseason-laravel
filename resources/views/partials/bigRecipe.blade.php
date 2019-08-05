@@ -6,7 +6,7 @@
     <p>{{$recipe->recipeBody}}</p>
     <div class="col-6 col-md-8" style="display:flex; ">
       <a href="recipe/{{$recipe->id}}" class="special-link" style="text-decoration:none; width:30%;">Ver más</a>
-      @auth<a href="recipe/edit/{{$recipe->id}}" class="special-link" style="text-decoration:none; width:30%;">Editar receta</a>@endauth
+      @auth<a href="editrecipe/{{$recipe->id}}" class="special-link" style="text-decoration:none; width:30%;">Editar receta</a>@endauth
     </div>
     <hr>
   </article>

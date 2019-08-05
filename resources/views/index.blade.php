@@ -6,11 +6,13 @@
 <body class="profile-body">
 @include('partials.header')
 
-@foreach ($listOfRecipes as $recipe)
+@foreach ($recipes as $recipe)
 @include('partials.bigRecipe')
 @endforeach
 
-
+{{-- @php
+  dd($recipes);
+@endphp --}}
 
 
 </body>

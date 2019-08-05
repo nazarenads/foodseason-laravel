@@ -35,9 +35,10 @@ Route::get('/newfriends', function () {
 })->middleware('auth');
 
 
-
 //RECIPES ROUTES
 Route::get('/index', 'RecipeController@index');
+//Route::get('/filter/{palabra}', 'RecipeController@showSearch');
+Route::get('/filter/{palabra}', 'RecipeController@searchRecipes');
 Route::get('/index/{tagName}', 'RecipeController@filterByTagName');
 Route::get('/addRecipe', 'RecipeController@create');
 Route::post('/addRecipe', 'RecipeController@store');

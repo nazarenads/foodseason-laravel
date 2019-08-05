@@ -6,6 +6,7 @@ use App\Recipe;
 use App\Tag;
 use Auth;
 use Illuminate\Http\Request;
+use DB;
 
 class RecipeController extends Controller
 {
@@ -15,8 +16,8 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function index(){
-         $listOfRecipes = Recipe::paginate(5);
-         return view('index', compact('listOfRecipes'));
+         $recipes = Recipe::paginate(5);
+         return view('index', compact('recipes'));
      }
 
     /**
@@ -55,20 +56,20 @@ class RecipeController extends Controller
 
       $this->validate($request, $rules, $messages);
 
-      $newrecipe = new Recipe();
+      $recipe = new Recipe();
 
       $path = $request->file('photoName')->store('public/recipesPictures');
       $file = basename($path);
 
-      $newrecipe->title = $request['title'];
-      $newrecipe->recipeBody = $request['recipeBody'];
+      $recipe->title = $request['title'];
+      $recipe->recipeBody = $request['recipeBody'];
       // $recipe->photoName = $request['photoName'];
-      $newrecipe->user_id = Auth::user()->id;
-      $newrecipe->image = $file;
-      $newrecipe->tag_id = $request['tag'];
-      $newrecipe->save();
+      $recipe->user_id = Auth::user()->id;
+      $recipe->image = $file;
+      $recipe->tag_id = $request['tag'];
+      $recipe->save();
 
-      return view('recipe', compact('newrecipe'));
+      return view('recipe', compact('recipe'));
     }
 
     /**
@@ -134,16 +135,34 @@ class RecipeController extends Controller
        public function showUserRecipes()
          {
            $user_id = Auth::user()->id;
-           $listOfRecipes = Recipe::where('user_id', $user_id)->get();
+           $listOfRecipes = Recipe::where('user_id', $user_id)->orderBy('created_at','desc')->get();;
            return view('profile', compact('listOfRecipes', 'user_id'));
          }
 
        public function filterByTagName($tagName){
 
-        $recipes = Recipe::where('tagName', $tagName)->paginate(5)->get();
+        $tag_id = Tag::where('tagName', $tagName)->pluck('id')->first();
+
+        $recipes = Recipe::where('tag_id', $tag_id)->paginate(5);
 
         return view('index', compact('recipes'));
     }
+      // public function showSearch($palabra){
+      //
+      //    return view('/filter', compact('palabra'));
+      // }
+
+      public function searchRecipes($palabra){
+        $recipes = DB::table('recipes')
+            ->join('tags', 'recipes.tag_id', '=', 'tags.id')
+            ->select('recipes.id', 'recipes.title AS recipeTitle', 'recipes.image', 'recipes.recipeBody AS recipeBodynom', 'tags.tagName AS tagNom')
+            ->having('recipeTitle', 'like', "%$palabra%")
+            ->orHaving('tagNom', 'like', "%$palabra%")
+            ->orHaving('recipeBodynom', 'like', "%$palabra%")
+            ->get();
+        return view('filter', compact('recipes', 'palabra'));
+
+      }
 
 
     /**

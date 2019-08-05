@@ -52,8 +52,8 @@
 
       @endguest
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Buscar recetas" aria-label="Search">
+      <form class="form-inline my-2 my-lg-0" action="/filter/{palabra}" method='get'>
+        <input class="form-control mr-sm-2" type="text" placeholder="Buscar recetas" aria-label="Search">
         <button class="btn btn-warning my-2 my-sm-0" style="background-color: #E9B000; color:white"  type="submit">Buscar</button>
       </form>
       </div>

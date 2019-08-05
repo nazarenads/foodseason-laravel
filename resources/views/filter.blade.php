@@ -1,21 +1,22 @@
 @extends("layouts.template")
 @section("title")
-Foodseason - Receta
+Foodseason - Resultados
 @endsection
 @section("body")
 @include('partials.header')
-      <body class="home-body">
-      <div class="col-12 col-md-8">
-        <article class="big-recipe">
-          <h2 class="recipe-title">{{$recipe->title}}</h2>
-          <img alt="" class="img-with-border" src="/storage/recipesPictures/{{$recipe->image}}">
-          <h3></h3>
-          <p>{{$recipe->recipeBody}}</p>
-          <hr>
-        </article>
 
-      </div>
-    </body>
+{{--
+@php
+  dd($palabra);
+@endphp --}}
+        <div class="titulo-seccion">
+          <h2>Resultados</h2>
+        </div>
+      <body class="home-body">
+        @foreach ($recipes as $recipe)
+        @include('partials.bigRecipe')
+        @endforeach
+      </body>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
