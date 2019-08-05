@@ -4,7 +4,7 @@ Foodseason - FAQS
 @endsection
 @section("body")
 <body class="faqs-body">
-    @include('\partials\header')
+    @include('partials.header')
     <div class="inicio">
       <div class="row">
         <div class="col-xs-12 col-md-12 col-lg-12" style="margin:30px">
