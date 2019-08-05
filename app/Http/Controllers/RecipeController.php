@@ -131,11 +131,10 @@ class RecipeController extends Controller
          return view('recipe', compact('recipe'));
        }
 
-       public function showUserRecipes()
-         {
-           $user_id = Auth::user()->id;
-           $listOfRecipes = Recipe::where('user_id', $user_id)->get();
-           return view('profile', compact('listOfRecipes', 'user_id'));
+       public function showUserRecipes()   {
+           $user = Auth::user();
+           $listOfRecipes = Recipe::where('user_id', $user->id)->get();
+           return view('profile', compact('listOfRecipes', 'user'));
          }
 
        public function filterByTagName($tagName){

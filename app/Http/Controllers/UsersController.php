@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Recipe;
 
-class UsersController extends Controller
-{
+class UsersController extends Controller {
     private function findByUsername($username) {
         return User::where('username', $username)->first();
     }
 
     public function show($username) {
         $user = $this->findByUsername($username);
-        return view('users.show', [
-            'user' => $user,
-        ]);
+        $listOfRecipes = Recipe::where('user_id', $user->id)->get();
+        return view('profile', compact('listOfRecipes', 'user'));
+
     }
 
     public function follow($username, Request $request) {
@@ -25,7 +25,7 @@ class UsersController extends Controller
 
         $me->follows()->attach($user);
 
-        return redirect('/'.$username)->withSuccess('Usuario seguido');
+        return redirect('/newfriends');
     }
 
     public function unfollow($username, Request $request) {
@@ -35,14 +35,14 @@ class UsersController extends Controller
 
         $me->follows()->detach($user);
 
-        return redirect('/'.$username)->withSuccess('Usuario no seguido');
+        return redirect('/newfriends');
     }
 
     public function followers($username)
     {
         $user = $this->findByUsername($username);
 
-        return view('users.follows', [
+        return view('followers', [
             'user' => $user,
             'follows' => $user->followers,
             'method' => 'followers',
@@ -52,7 +52,7 @@ class UsersController extends Controller
     public function follows($username) {
         $user = $this->findByUsername($username);
 
-        return view('users.follows', [
+        return view('following', [
             'user' => $user,
             'follows' => $user->follows,
             'method' => 'follows',
