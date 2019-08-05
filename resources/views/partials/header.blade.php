@@ -25,7 +25,7 @@
           <a class="nav-link" href="feed"> Inicio </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="{{ route('profile') }}"> Mi perfil</a>
+          <a class="nav-link" href="{{Auth::user()->username}}"> Mi perfil</a>
         </li>
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

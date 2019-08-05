@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Recipe;
 use App\Tag;
+use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use DB;
@@ -131,9 +132,12 @@ class RecipeController extends Controller
          $recipe = Recipe::find($id);
          return view('recipe', compact('recipe'));
        }
-
-       public function showUserRecipes()
+       private function findByUsername($username) {
+           return User::where('username', $username)->first();
+       }
+       public function showUserRecipes($username)
          {
+           $user = $this->findByUsername($username);
            $user_id = Auth::user()->id;
            $listOfRecipes = Recipe::where('user_id', $user_id)->orderBy('created_at','desc')->get();;
            return view('profile', compact('listOfRecipes', 'user_id'));

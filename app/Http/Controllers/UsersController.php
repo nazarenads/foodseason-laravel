@@ -44,7 +44,7 @@ class UsersController extends Controller {
 
         return view('followers', [
             'user' => $user,
-            'follows' => $user->followers,
+            'followers' => $user->followers,
             'method' => 'followers',
         ]);
     }

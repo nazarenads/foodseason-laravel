@@ -11,7 +11,6 @@
   @section("body")
   <body class="body-friends">
         @include('partials.header')
-
 <div class="content">
     <div class="container">
         <div class="row">

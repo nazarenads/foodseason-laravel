@@ -63,7 +63,7 @@ Route::get('/newfriends', function () {
     $users=User::Where("id","!=",Auth::user()->id)->withCount(['followers','follows'])->get();
     return view('newfriends', compact("users"));
 })->middleware('auth');
-Route::get('/profile', 'RecipeController@showUserRecipes')->name('profile');
+Route::get('/{username}', 'RecipeController@showUserRecipes')->name('profile');
 Route::get('/{username}', 'UsersController@show');
 Route::get('/{username}/followers', 'UsersController@followers');
 Route::get('/{username}/follows', 'UsersController@follows');
