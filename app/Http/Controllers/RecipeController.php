@@ -151,10 +151,18 @@ class RecipeController extends Controller
      * @param  \App\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+     public function showDestroy($id){
+
+         $recipe = Recipe::find($id);
+         return view('/deleterecipe', compact('recipe'));
+     }
+
+     public function destroy(Request $request){
+
+       $recipe = Recipe::find($request['id']);
+       $recipe->delete();
+       return redirect('/home');
+     }
 
 
 
