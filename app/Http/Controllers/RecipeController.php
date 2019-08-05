@@ -156,14 +156,20 @@ class RecipeController extends Controller
       //    return view('/filter', compact('palabra'));
       // }
 
-      public function searchRecipes($palabra){
+      public function searchRecipes(Request $request){
+
+          $palabra = $request['search'];
         $recipes = DB::table('recipes')
             ->join('tags', 'recipes.tag_id', '=', 'tags.id')
-            ->select('recipes.id', 'recipes.title AS recipeTitle', 'recipes.image', 'recipes.recipeBody AS recipeBodynom', 'tags.tagName AS tagNom')
+            ->select('recipes.id', 'recipes.title AS recipeTitle', 'recipes.image', 'recipes.recipeBody AS recipeBodyText', 'tags.tagName AS tagNameText')
             ->having('recipeTitle', 'like', "%$palabra%")
-            ->orHaving('tagNom', 'like', "%$palabra%")
-            ->orHaving('recipeBodynom', 'like', "%$palabra%")
+            ->orHaving('tagNameText', 'like', "%$palabra%")
+            ->orHaving('recipeBodyText', 'like', "%$palabra%")
             ->get();
+
+        if($recipes->count()==0){
+          return view('noResults');
+        }
         return view('filter', compact('recipes', 'palabra'));
 
       }

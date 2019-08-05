@@ -5,35 +5,14 @@ Foodseason - Resultados
 @section("body")
 @include('partials.header')
 
-
-{{-- @php
-  dd($recipes);
-@endphp --}}
-      <body class="home-body">
+  <body class="home-body">
         <div class="">
           <h2>Resultados</h2>
         </div>
+        <h2>No encontramos resultados para tu búsqueda :(</h2>
+        <h2>Intentá de nuevo!</h2>
 
-        @foreach ($recipes as $recipe)
-          <div class="col-12 col-md-8">
-            <article class="big-recipe">
-              <h2 class="recipe-title">{{$recipe->recipeTitle}}</h2>
-              <img alt="" class="img-with-border" src="/storage/recipesPictures/{{$recipe->image}}">
-              <h3></h3>
-              <p>{{$recipe->recipeBodyText}}</p>
-              <div class="col-6 col-md-8" style="display:flex; ">
-                <a href="recipe/{{$recipe->id}}" class="special-link" style="text-decoration:none; width:30%;">Ver más</a>
-                @auth<a href="editrecipe/{{$recipe->id}}" class="special-link" style="text-decoration:none; width:30%;">Editar receta</a>@endauth
-              </div>
-              <hr>
-            </article>
-
-          </div>
-
-
-
-        @endforeach
-      </body>
+  </body>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
