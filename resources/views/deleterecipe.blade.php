@@ -22,9 +22,9 @@ Foodseason - Eliminar receta
         </article>
 
       </div>
-      <form action="/deleterecipe/{{ $recipe->id }}" method="post" style='display:flex; justify-content:center;'>
+      <form action="" method="post" style='display:flex; justify-content:center;'>
         @csrf
-        <input type="hidden" name="id" value="{{$recipe['id']}}">
+        <input type="hidden" name="id" value="{{$recipe->id}}">
         <button class="btn btn-danger btn-signin-signup" style="width:15%; " type="submit" name="" value="">Eliminar</button>
       </form>
 

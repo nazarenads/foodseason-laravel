@@ -188,10 +188,12 @@ class RecipeController extends Controller
      }
 
      public function destroy(Request $request){
-
+       // $user = Auth::user();
+       // $username = $user->username;
+       // $listOfRecipes = $this->showUserRecipes($username);
        $recipe = Recipe::find($request['id']);
        $recipe->delete();
-       return redirect('/home');
+       return view('/recipeDeleted');
      }
 
 
