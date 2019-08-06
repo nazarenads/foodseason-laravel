@@ -56,54 +56,17 @@ Foodseason - Subir una receta
             @endif
             <div class="form-group">
 
-                  {{-- Elige tu hashtag: --}}
-
-                      <select class="" name="tag" style="color:#E24E42; margin:20px;">
-                          <option value="">¿Cómo definirías a tu receta?</option>
-                        @foreach ($listOfTags as $tag)
-                          <option value="{{$tag['id']}}">{{$tag['tagName']}}</option>
-                        @endforeach
-                      </select>
-                    {{--
-                    <div class="col-sm-10">
-                    <div class="modal-body">
+                  <div id="mainselection">
+                    <select>
+                      <option value="">¿Cómo definirías a tu receta?</option>
                     @foreach ($listOfTags as $tag)
-                      <button type="button" class="btn btn-primary" name='tag' value="{{$tag['id']}}">{{$tag['tagName']}}</button>
+                      <option value="{{$tag['id']}}">{{$tag['tagName']}}</option>
                     @endforeach
-                    </div>
-                    </div>
-                    --}}
-
-
-
-
-                  {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                    Elige tu hashtag:
-                  </button>
-
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">¿Cómo defines tu receta?</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          @foreach ($listOfTags as $tag)
-                            <button type="button" class="btn btn-primary" name='tag' value="{{$tag['tagName']}}">{{$tag['tagName']}}</button>
-                          @endforeach
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                          <button type="button" class="btn btn-primary">Guardar</button>
-                        </div>
-                      </div>
-                    </div>
+                    </select>
                   </div>
-              </div> --}}
+
+
+
 
           </div>
 

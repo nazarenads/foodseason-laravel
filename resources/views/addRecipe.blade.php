@@ -29,7 +29,8 @@ Foodseason - Subir una receta
               <br>
               <div class="col-sm-10">
                 <label class="col-sm-2 control-label"><i class="fas fa-utensils"></i> Foto:</label>
-                <input type="file" name="photoName" class="form-control">
+                <input type="file" name="photoName"class="form-control">
+
               </div>
               <br>
               @if($errors->has('photoName'))
@@ -40,7 +41,7 @@ Foodseason - Subir una receta
           <div class="form-group">
             <div class="col-sm-10">
             <label class="col-sm-2 control-label"><i class="fas fa-utensils"></i> Procedimiento e ingredientes:</label>
-              <textarea rows="3" name="recipeBody" class="form-control"></textarea>
+              <textarea rows="10" name="recipeBody" class="form-control"></textarea>
             </div>
             </div>
             @if($errors->has('recipeBody'))
@@ -48,54 +49,15 @@ Foodseason - Subir una receta
             @endif
             <div class="form-group">
 
-                  {{-- Elige tu hashtag: --}}
+              <div id="mainselection">
+                <select>
+                  <option value="">¿Cómo definirías a tu receta?</option>
+                @foreach ($listOfTags as $tag)
+                  <option value="{{$tag['id']}}">{{$tag['tagName']}}</option>
+                @endforeach
+                </select>
+              </div>
 
-                      <select class="" name="tag" style="color:#E24E42; margin:20px;">
-                          <option value="">¿Cómo definirías a tu receta?</option>
-                        @foreach ($listOfTags as $tag)
-                          <option value="{{$tag['id']}}">{{$tag['tagName']}}</option>
-                        @endforeach
-                      </select>
-                    {{--
-                    <div class="col-sm-10">
-                    <div class="modal-body">
-                    @foreach ($listOfTags as $tag)
-                      <button type="button" class="btn btn-primary" name='tag' value="{{$tag['id']}}">{{$tag['tagName']}}</button>
-                    @endforeach
-                    </div>
-                    </div>
-                    --}}
-
-
-
-
-                  {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                    Elige tu hashtag:
-                  </button>
-
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">¿Cómo defines tu receta?</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          @foreach ($listOfTags as $tag)
-                            <button type="button" class="btn btn-primary" name='tag' value="{{$tag['tagName']}}">{{$tag['tagName']}}</button>
-                          @endforeach
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                          <button type="button" class="btn btn-primary">Guardar</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div> --}}
 
           </div>
 

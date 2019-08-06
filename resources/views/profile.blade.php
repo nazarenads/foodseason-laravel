@@ -69,11 +69,18 @@ Foodseason - Profile
                       </div>
           </div>
           </div>
+          <div class="grid-gallery">
+              <a class="grid-gallery__item" href="#">
+                @foreach ($listOfRecipes as $recipe)
+                @include('partials.bigRecipe')
+                @endforeach
 
-              @foreach ($listOfRecipes as $recipe)
-              @include('partials.bigRecipe')
-              @endforeach
+              </a>
+          </div>
 
+        </div>
+        </div>
+      </div>
         </div>
   </body>
 </html>
