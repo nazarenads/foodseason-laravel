@@ -5,12 +5,24 @@ Foodseason - Resultados
 @section("body")
 @include('partials.header')
 
-  <body class="home-body">
-        <div class="">
-          <h2>Resultados</h2>
+  <body class="editprofile-body" >
+
+    <div class="container" style="display:flex; align-items:baseline; justify-content:center;">
+      <div class="page-header header-filter" data-parallax="true" ></div>
+        <div class="main main-raised" style="background-color:#C00000;">
+          <div class="profile-content">
+            <div class="row">
+              <div class="col-md-6 ml-auto mr-auto" >
+
+                <h2 >No encontramos resultados para tu búsqueda :(</h2>
+                <h2 >Intentá de nuevo!</h2>
+              </div>
+            </div>
+          </div>
         </div>
-        <h2>No encontramos resultados para tu búsqueda :(</h2>
-        <h2>Intentá de nuevo!</h2>
+      </div>
+
+
 
   </body>
   <!-- Optional JavaScript -->
