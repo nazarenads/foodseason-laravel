@@ -49,8 +49,10 @@ Route::post('/addRecipe', 'RecipeController@store')->name('addRecipe');
 Route::get('/editrecipe/{id}', 'RecipeController@edit');
 Route::post('/editrecipe/{id}', 'RecipeController@update');
 Route::get('/deleterecipe/{id}', 'RecipeController@showDestroy');
-Route::post('/deleterecipe/{id}', 'RecipeController@destroy');
+Route::post('/deleterecipe/{id}', 'RecipeController@destroy')->name('deleteRecipe');
+Route::post('/feed', 'RecipeController@destroy');
 Route::get('/recipe/{id}', 'RecipeController@show')->name('recipeId');
+Route::get('/recipeDeleted', 'RecipeController@show');
 
 
 
@@ -60,7 +62,7 @@ Route::get('/editprofile', 'ProfileController@create')->middleware('auth');
 Route::post('/editprofile', 'ProfileController@updateProfile')->name('editprofile')->middleware('auth');
 Route::get('/newfriends', 'UsersController@showNewFriends')->name('newfriends');
 Route::get('/{username}', 'RecipeController@showUserRecipes')->name('profile');
-Route::get('/{username}', 'UsersController@show');
+Route::get('/{username}', 'UsersController@show')->name('profile');
 Route::get('/{username}/followers', 'UsersController@followers');
 Route::get('/{username}/follows', 'UsersController@follows');
 Route::post('/{username}/follow', 'UsersController@follow')->middleware('auth');

@@ -72,7 +72,7 @@ Foodseason - Subir una receta
 
               <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2">
-                  <button type="submit" class="btn btn-danger" style="background-color: #e24e42; color:white"><i class="fas fa-carrot"></i> Editar</button>
+                  <button type="submit" class="btn btn-danger" style="background-color: #e24e42; color:white"><i class="fas fa-carrot"></i> Aceptar</button>
                   <button type="reset" class="btn btn-warning" style="background-color: #E9B000; color:white"><i class="far fa-window-close"></i> Cancelar</button>
                 </div>
               </div>
