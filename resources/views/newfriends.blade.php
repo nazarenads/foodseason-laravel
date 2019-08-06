@@ -31,7 +31,7 @@
                             @if (session('success'))
                                 <span class="text-success">{{ session('success') }}</span>
                             @endif
-                            <button class="btn btn-danger">Unfollow</button>
+                            <button class="btn btn-danger" style="color:white; background-color: #E24E42">Unfollow</button>
                           </form>
                           @else
                           <form action="/{{$user->username}}/follow" method="post">
@@ -39,7 +39,7 @@
                             @if (session('success'))
                                 <span class="text-success">{{ session('success') }}</span>
                             @endif
-                            <button class="btn btn-primary">Follow</button>
+                            <button class="btn btn-info" style="color:white; background-color: #008F95">Follow</button>
                           </form>
                           @endif
                         @endif
