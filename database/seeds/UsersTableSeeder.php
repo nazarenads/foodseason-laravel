@@ -33,7 +33,7 @@ class UsersTableSeeder extends Seeder
 // Creacion de usuario MP en la base de datos
 
         DB::table('users')->insert([
-          'username' => 'Maria Paula',
+          'username' => 'Maria_Paula',
           'email' => 'mariap@gmail.com',
           'password' => bcrypt('mpcapa'),
  ]);
