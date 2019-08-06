@@ -9,16 +9,22 @@ Foodseason - Resultados
 
     <div class="container" style="display:flex; align-items:baseline; justify-content:center;">
       <div class="page-header header-filter" data-parallax="true" ></div>
-        <div class="main main-raised" style="background-color:#C00000;">
+
           <div class="profile-content">
             <div class="row">
               <div class="col-md-6 ml-auto mr-auto" >
+                <div class="alert alert-warning alert-dismissible fade show" role="alert" style="color:#4C4C4C;">
+                <strong> Intentá de nuevo!</strong> No encontramos resultados para tu búsqueda <i class="fas fa-heart-broken" style="color:#"></i>
+                 <a href="addRecipe" style="color:#4C4C4C; text-decoration:none;"> O... ¿por qué no subís tu propia receta? <i class="fas fa-plus-circle"></i></a>
 
-                <h2 >No encontramos resultados para tu búsqueda :(</h2>
-                <h2 >Intentá de nuevo!</h2>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
               </div>
             </div>
-          </div>
+
         </div>
       </div>
 
