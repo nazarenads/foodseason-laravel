@@ -50,7 +50,7 @@ Route::get('/editrecipe/{id}', 'RecipeController@edit');
 Route::post('/editrecipe/{id}', 'RecipeController@update');
 Route::get('/deleterecipe/{id}', 'RecipeController@showDestroy');
 Route::post('/deleterecipe/{id}', 'RecipeController@destroy');
-Route::get('/recipe/{id}', 'RecipeController@show');
+Route::get('/recipe/{id}', 'RecipeController@show')->name('recipeId');
 
 
 
