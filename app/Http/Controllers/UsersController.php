@@ -8,6 +8,16 @@ use App\Recipe;
 use Auth;
 
 class UsersController extends Controller {
+
+  // public function showNewFriends() {
+  //     return view('newfriends');
+  //   }
+
+    public function showNewFriends() {
+        $users=User::Where("id","!=",Auth::user()->id)->withCount(['followers','follows'])->get();
+        return view('newfriends', compact("users"));
+    }
+
     private function findByUsername($username) {
         return User::where('username', $username)->first();
     }

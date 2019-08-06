@@ -35,19 +35,17 @@ Route::get('/faqs', function () {
 // })->name('editprofile')->middleware('auth');
 
 
-Route::get('/newfriends', function () {
-    return view('newfriends');
-})->middleware('auth');
+
 
 
 //RECIPES ROUTES
 Route::get('/index', 'RecipeController@index');
-Route::get('/feed', 'UsersController@showFollowedRecipes');
+Route::get('/feed', 'UsersController@showFollowedRecipes')->name('feed');
 Route::get('/filter', 'RecipeController@searchRecipes');
 Route::get('/noResults', 'RecipeController@show')->name('noResults');
 Route::get('/index/{tagName}', 'RecipeController@filterByTagName');
-Route::get('/addRecipe', 'RecipeController@create');
-Route::post('/addRecipe', 'RecipeController@store');
+Route::get('/addRecipe', 'RecipeController@create')->name('addRecipe');
+Route::post('/addRecipe', 'RecipeController@store')->name('addRecipe');
 Route::get('/editrecipe/{id}', 'RecipeController@edit');
 Route::post('/editrecipe/{id}', 'RecipeController@update');
 Route::get('/deleterecipe/{id}', 'RecipeController@showDestroy');
@@ -60,10 +58,7 @@ Route::get('/recipe/{id}', 'RecipeController@show');
 Auth::routes();
 Route::get('/editprofile', 'ProfileController@create')->middleware('auth');
 Route::post('/editprofile', 'ProfileController@updateProfile')->name('editprofile')->middleware('auth');
-Route::get('/newfriends', function () {
-    $users=User::Where("id","!=",Auth::user()->id)->withCount(['followers','follows'])->get();
-    return view('newfriends', compact("users"));
-})->middleware('auth');
+Route::get('/newfriends', 'UsersController@showNewFriends')->name('newfriends');
 Route::get('/{username}', 'RecipeController@showUserRecipes')->name('profile');
 Route::get('/{username}', 'UsersController@show');
 Route::get('/{username}/followers', 'UsersController@followers');

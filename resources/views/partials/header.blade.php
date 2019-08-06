@@ -43,16 +43,16 @@
               </div>
           </li>
         <li class="form-inline my-2 my-lg-0 nav-item active">
-          <a class="nav-link" href="feed"> <i class="fas fa-coffee"></i> Inicio  </a>
+          <a class="nav-link" href="{{ route('feed') }}"> <i class="fas fa-coffee"></i> Inicio  </a>
         </li>
         <li class="form-inline my-2 my-lg-0 nav-item active">
-          <a class="nav-link" href="newfriends"> <i class="fas fa-user-plus"></i> Chefs  </a>
+          <a class="nav-link" href="{{ route('newfriends')}}"> <i class="fas fa-user-plus"></i> Chefs  </a>
         </li>
         <li class="form-inline my-2 my-lg-0 nav-item active">
           <a class="nav-link" href="{{Auth::user()->username}}"> <i class="far fa-user-circle"></i>  Mi perfil </a>
         </li>
         <li class="form-inline my-2 my-lg-0 nav-item active">
-          <a class="nav-link" href="addRecipe"> <i class="fas fa-plus-circle"></i> Subir receta  </a>
+          <a class="nav-link" href="{{route('addRecipe')}}"> <i class="fas fa-plus-circle"></i> Subir receta  </a>
         </li>
         <li class="form-inline my-2 my-lg-0 nav-item active">
           <a class="nav-link" href="{{ route('faqs') }}"> <i class="fas fa-question"></i>  FAQ's </a>
