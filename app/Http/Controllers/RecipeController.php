@@ -123,7 +123,7 @@ class RecipeController extends Controller
       $recipe->save();
 
       $listOfTags = Tag::all();
-      return redirect('recipeId');
+      return view('recipe', compact('recipe'));
     }
 
 
