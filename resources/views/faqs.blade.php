@@ -12,10 +12,10 @@ Foodseason - FAQS
           <div class="row">
   <div class="col-xs-6 col-md-6 col-lg-4" style="padding-left:32px; margin:auto;" >
     <div class="input-group">
-      <span class="input-group-btn">
+      {{-- <span class="input-group-btn">
         <button class="btn btn-warning" style="color:white; background-color: #E9B000" type="button">Buscar</button>
       </span>
-      <input type="text" class="form-control" placeholder="¿Necesitas ayuda? Busca en nuestros items...">
+      <input type="text" class="form-control" placeholder="¿Necesitas ayuda? Busca en nuestros items..."> --}}
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
         </div>

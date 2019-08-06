@@ -12,7 +12,7 @@ Foodseason - Subir una receta
         <div class="container center-block">
     <div class="row">
       <div class="col-xs-12 col-sm-9">
-        <h4 style="color:#E24E42; margin:20px;"><strong> ¡Edita tu receta!</strong></h4>
+        <h4 style="color:#E24E42; margin:20px;"><strong> ¡Editá tu receta!</strong></h4>
         <form class="form-horizontal" action="/editrecipe/{{ $recipe->id }}" method="post" enctype="multipart/form-data">
           @csrf
           <div class="panel panel-default">

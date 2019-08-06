@@ -51,7 +51,7 @@ Route::post('/editrecipe/{id}', 'RecipeController@update');
 Route::get('/deleterecipe/{id}', 'RecipeController@showDestroy');
 Route::post('/deleterecipe/{id}', 'RecipeController@destroy')->name('deleteRecipe');
 Route::post('/feed', 'RecipeController@destroy');
-Route::get('/recipe/{id}', 'RecipeController@show')->name('recipeId');
+Route::get('/recipe/{id}', 'RecipeController@show');
 Route::get('/recipeDeleted', 'RecipeController@show');
 
 
