@@ -17,9 +17,10 @@
 
                   </div>
                     <a href="recipe/{{$recipe->id}}" class="special-link" style="text-decoration:none; background-color:#008F95;"> <i class="fas fa-glasses"></i> Ver más</a>
-                    @auth<a href="editrecipe/{{$recipe->id}}" class="special-link" style="text-decoration:none;background-color:#EB6E80;"><i class="far fa-edit"></i></a>@endauth
+                    @auth<a href="editrecipe/{{$recipe->id}}" class="special-link" style="text-decoration:none;background-color:#EB6E80;"><i class="far fa-edit"></i> Editar</a>@endauth
+                    @auth<form action= "/feed" method="POST"> @csrf <button type= "submit" class="btn btn-info" style="background-color: #008F95; color:white"><i class="far fa-window-close"></i> Borrar</button></form>@endauth
 
-                  <hr>
+                    <hr>
                   <hr>
                   </div>
               </div>
