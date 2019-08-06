@@ -19,7 +19,14 @@
             <div class="col-lg-4">
                 <div class="text-center card-box-friends">
                     <div class="member-card pt-2 pb-2">
-                        <div class="followavatar"><img src="https://images.unsplash.com/photo-1430931071372-38127bd472b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" ></div>
+                      <div class="followavatar">
+                      @if ($user->profile_image)
+                        <img src="storage/profilePictures/{{$user->profile_image}}"  class="img-raised rounded-circle img-fluid">
+                      @else
+                        <img src="img/profiledefault.png"  class="img-raised rounded-circle img-fluid">
+                      @endif
+                      {{ $user->username }}
+                        </div>
                         <div class="">
                             <a href="/{{$user->username}}"> <h4 style="color:black;" >{{$user->username}}</h4> </a>
                             <p class="text-muted">{{$user->username}} <span>| </span><span><a href="#" class="text-pink"> {{$user->bio}}</a></span></p>

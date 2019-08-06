@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
     @extends("layouts.template")
     @section("title")
     Foodseason - Follow
     @endsection
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
   </head>
   @section("body")
   <body class="body-friends">
         @include('partials.header')
-
 <div class="content">
     <div class="container">
         <div class="row">
@@ -19,7 +14,14 @@
             <div class="col-lg-4">
                 <div class="text-center card-box-friends">
                     <div class="member-card pt-2 pb-2">
-                        <div class="followavatar"><img src="https://images.unsplash.com/photo-1430931071372-38127bd472b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" ></div>
+                      <div class="followavatar">
+                      @if ($user->profile_image)
+                        <img src="storage/profilePictures/{{$user->profile_image}}"  class="img-raised rounded-circle img-fluid">
+                      @else
+                        <img src="img/profiledefault.png"  class="img-raised rounded-circle img-fluid">
+                      @endif
+                      {{ $user->username }}
+                        </div>
                         <div class="">
                             <a href="/{{$follow->username}}"> <h4 style="color:black;" >{{$follow->username}}</h4> </a>
                             <p class="text-muted">{{$follow->username}} <span>| </span><span><a href="#" class="text-pink"> {{$follow->bio}}</a></span></p>
@@ -58,4 +60,3 @@
 
 @endsection
 </body>
-</html>
