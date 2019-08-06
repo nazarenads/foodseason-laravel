@@ -65,9 +65,6 @@ Foodseason - Subir una receta
                     </select>
                   </div>
 
-
-
-
           </div>
 
               <div class="form-group">
