@@ -7,26 +7,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="color">
       <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{{ route('faqs') }}">FAQ's</a>
+        @guest
+            <li class="form-inline my-2 my-lg-0 nav-item active">
+              <a class="nav-link" href="{{ route('faqs') }}"><i class="fas fa-question"></i>  FAQ's</a>
             </li>
-              @guest
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Ingresar') }}</a>
+            <li class="form-inline my-2 my-lg-0 nav-item active">
+                <a class="nav-link" href="{{ route('login') }}"><i class="far fa-user"></i> {{ __('Ingresar') }}</a>
             </li>
             @if (Route::has('register'))
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('¿No tenes cuenta? ¡Registrate!') }}</a>
+                    <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user"></i> {{ __('¿No tenes cuenta? ¡Registrate!') }}</a>
                 </li>
             @endif
         @else
-
-        <li class="nav-item active">
-          <a class="nav-link" href="feed"> Inicio </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{{Auth::user()->username}}"> Mi perfil</a>
-        </li>
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             @if (Auth::user()->profile_image)
@@ -49,7 +42,21 @@
                   </form>
               </div>
           </li>
-
+        <li class="form-inline my-2 my-lg-0 nav-item active">
+          <a class="nav-link" href="feed"> <i class="fas fa-coffee"></i> Inicio  </a>
+        </li>
+        <li class="form-inline my-2 my-lg-0 nav-item active">
+          <a class="nav-link" href="newfriends"> <i class="fas fa-user-plus"></i> Chefs  </a>
+        </li>
+        <li class="form-inline my-2 my-lg-0 nav-item active">
+          <a class="nav-link" href="{{Auth::user()->username}}"> <i class="far fa-user-circle"></i>  Mi perfil </a>
+        </li>
+        <li class="form-inline my-2 my-lg-0 nav-item active">
+          <a class="nav-link" href="addRecipe"> <i class="fas fa-plus-circle"></i> Subir receta  </a>
+        </li>
+        <li class="form-inline my-2 my-lg-0 nav-item active">
+          <a class="nav-link" href="{{ route('faqs') }}"> <i class="fas fa-question"></i>  FAQ's </a>
+        </li>
       @endguest
       </ul>
       <form class="form-inline my-2 my-lg-0" action="/filter" method='get'>

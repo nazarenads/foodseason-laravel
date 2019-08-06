@@ -1,42 +1,57 @@
 @extends("layouts.template")
 @section("title")
-Foodseason - Profile
+Foodseason - Feed
 @endsection
+@include('partials.header')
 @section("body")
   <body class="profile-body">
-      @include('partials.header')
-    <div class="container">
-    <div class="page-header header-filter" data-parallax="true"></div>
-  <div class="main main-raised">
-          <div class="container">
-      			<div class="row">
-      				<!-- column-8 -->
+        <div class="container">
+        <div class="page-header header-filter" data-parallax="true"></div>
+        <div class="main main-raised">
+          <div class="profile-content">
+              <div class="row">
+                <div class="col-md-6 ml-auto mr-auto">
+            <div class="row">
+              <div class="col-md-6 ml-auto mr-auto">
+                      <div class="profile-tabs">
+                        <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                          <li class="nav-item">
+                              <a class="nav-link active" href="profile" role="tab" data-toggle="tab">
+                                <i class="fas fa-book"></i> Mis recetas
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="favrecipes" role="tab" data-toggle="tab">
+                              <i class="far fa-heart"></i>
+                                  Recetas favoritas
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href= "{{$user->username}}/follows" class="nav-link" role="tab" data-toggle="tab">
+                                <i class="fas fa-users"></i>
+                                  Seguidos: <span class="badge badge-secondary">{{$user->follows->count()}}</span>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{$user->username}}/followers" class="nav-link"  role="tab" data-toggle="tab">
+                                <i class="fas fa-user-friends"></i>
+                                  Seguidores: <span class="badge badge-secondary">{{$user->followers->count()}}</span>
+                              </a>
+                          </li>
+                        </ul>
+                      </div>
+          </div>
+          </div>
 
-      				<!-- /column-8 -->
+                  @foreach ($friendsRecipes as $recipe)
+                    @include('partials.bigRecipe')
+                  @endforeach
 
-              {{-- @php
-              dd($friendsRecipes);
-              @endphp --}}
-
-
-              @foreach ($friendsRecipes as $recipe)
-                @include('partials.bigRecipe')
-              @endforeach
-
-      				<!-- column-4 -->
-
-
-      				<!-- /column-4 -->
-      			</div>
-      		</div>
-
+          			</div>
+          		</div>
+            </div>
         </div>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+
   </body>
-</html>
   @endsection
+</html>

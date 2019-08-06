@@ -31,8 +31,8 @@ Foodseason - Profile
                   <p>{{ $user->bio }}</p>
                   @if(Auth::user()->id==$user->id)
                   <li class="nav-item">
-                    <a href="editprofile" class="btn btn-light"> <i class="fas fa-user-edit"></i> Editar perfil </a>
-                    <a href="addRecipe" class="btn btn-light"> <i class="fab fa-nutritionix"></i> Nueva receta </a>
+                    <a href="editprofile" class="btn btn-light" style="background-color:#EB6E80; color:white;"> <i class="fas fa-user-edit"></i> Editar perfil </a>
+                    <a href="addRecipe" class="btn btn-light"  style="background-color:#E9B000;color:white;"> <i class="fab fa-nutritionix"></i> Nueva receta </a>
                   </li>
                   @endif
               </div>
@@ -71,23 +71,16 @@ Foodseason - Profile
           </div>
           <div class="container">
       			<div class="row">
-      				<!-- column-8 -->
-
-              {{-- @php
-                dd($listOfRecipes);
-              @endphp --}}
-
+              <div class="col-12  ">
+              
               @foreach ($listOfRecipes as $recipe)
               @include('partials.bigRecipe')
               @endforeach
-      				<!-- /column-8 -->
 
-      				<!-- column-4 -->
-
-      				<!-- /column-4 -->
       			</div>
       		</div>
 
+          </div>
         </div>
   </body>
 </html>

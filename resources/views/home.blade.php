@@ -8,7 +8,7 @@ Foodseason - Inicio
     <section>
       <div class="container-fluid">
         <div class="row d-flex">
-          <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="card card-home">
               <div class="card-body">
                 <h4 class="card-title"  style="margin-bottom: 15%;   font-size: 1.5em;" >¡Llegaste a la red de recetas más cómoda!</h4>
