@@ -14,8 +14,10 @@ Foodseason - Resultados
             <div class="row">
               <div class="col-md-6 ml-auto mr-auto" >
 
-                <h2 >No encontramos resultados para tu búsqueda :(</h2>
+                <h2 >No encontramos resultados para tu búsqueda <i class="fas fa-heart-broken" style="color:#"></i></h2>
                 <h2 >Intentá de nuevo!</h2>
+                <h2 >O... ¿por qué no subes tu propia receta? <a href="addRecipe"></a> </h2>
+
               </div>
             </div>
           </div>

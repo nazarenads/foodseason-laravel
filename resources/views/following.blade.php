@@ -22,7 +22,7 @@
                         <div class="followavatar"><img src="https://images.unsplash.com/photo-1430931071372-38127bd472b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" ></div>
                         <div class="">
                             <a href="/{{$follow->username}}"> <h4 style="color:black;" >{{$follow->username}}</h4> </a>
-                            <p class="text-muted">@Chef <span>| </span><span><a href="#" class="text-pink"> Biografia</a></span></p>
+                            <p class="text-muted">{{$follow->username}} <span>| </span><span><a href="#" class="text-pink"> {{$follow->bio}}</a></span></p>
                         </div>
                         @if (Auth::check())
                           @if (Auth::user()->isFollowing($follow))

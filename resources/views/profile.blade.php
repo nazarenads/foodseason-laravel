@@ -69,18 +69,11 @@ Foodseason - Profile
                       </div>
           </div>
           </div>
-          <div class="container">
-      			<div class="row">
-              <div class="col-12  ">
-              
+
               @foreach ($listOfRecipes as $recipe)
               @include('partials.bigRecipe')
               @endforeach
 
-      			</div>
-      		</div>
-
-          </div>
         </div>
   </body>
 </html>
