@@ -57,7 +57,7 @@ Foodseason - Iniciar sesión
              <a class="btn btn-light btn-light-signin-signup" href="{{ route('register') }}" role="button">¿Todavía no tenés una cuenta?</a>
 
              @if (Route::has('password.request'))
-                 <a class="btn btn-light btn-light-signin-signup" href="" role="button">
+                 <a class="btn btn-light btn-light-signin-signup" href="{{ route('password.request') }}" role="button">
                      {{ __('¿Te olvidaste tu contraseña?') }}
                  </a>
              @endif
