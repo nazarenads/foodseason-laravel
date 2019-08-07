@@ -38,17 +38,23 @@
             <div class="col-sm-10">
               <input type="text" class="form-control" name='username' value="{{ old('username', auth()->user()->username) }}">
             </div>
+            @if($errors->has('username'))
+            <p>{{ $errors->first('username') }}</p>
+            @endif
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">E-mail</label>
             <div class="col-sm-10">
               <input type="email" class="form-control" name='email' value="{{ old('email', auth()->user()->email) }}">
             </div>
+            @if($errors->has('email'))
+            <p>{{ $errors->first('email') }}</p>
+            @endif
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Biografía</label>
             <div class="col-sm-10">
-              <textarea rows="3" class="form-control" name="bio" value="{{ old('bio', auth()->user()->bio) }}"></textarea>
+              <textarea rows="3" class="form-control" name="bio" value="">{{ old('bio', auth()->user()->bio) }}</textarea>
             </div>
             </div>
             </div>
@@ -83,10 +89,10 @@
             <label class="col-sm-2 control-label">Nueva contraseña</label>
             <div class="col-sm-10">
               <input type="password" class="form-control" name="newpassword" placeholder="Nueva contraseña" value="">
-              @if(isset($errorNewPassword))
-                    <span class="error-form">{{$errorNewPassword}}</span>
-                @endif
             </div>
+            @if($errors->has('newpassword'))
+            <p>{{ $errors->first('newpassword') }}</p>
+            @endif
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Confirmar contraseña</label>
@@ -105,16 +111,19 @@
                 @if(isset($errorPassword))
                       <span class="error-form">{{$errorPassword}}</span>
                   @endif
+                  {{-- @if($errors->has('password'))
+                  <p>{{ $errors->first('password') }}</p>
+                  @endif --}}
               </div>
               </div>
-          <div class="form-group">
+          {{-- <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
               <div class="checkbox">
                 <input type="checkbox" id="checkbox_1">
                 <label for="checkbox_1">Deseo que mi cuenta sea pública</label>
               </div>
             </div>
-          </div>
+          </div> --}}
           <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
               <button type="submit" class="btn btn-danger" style="background-color: #e24e42; color:white">Guardar</button>

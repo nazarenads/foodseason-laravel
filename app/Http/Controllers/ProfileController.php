@@ -24,6 +24,14 @@ class ProfileController extends Controller
       return view('editprofile');
   }
   public function updateProfile(Request $request){
+    // Check if the password matches
+    if (!(Hash::check($request->get('password'), Auth::user()->password))) {
+        $errorPassword = "Contraseña incorrecta";
+      return view('editprofile', compact('errorPassword'));
+    }
+
+
+
         // Form validation
         $request->validate([
             'username'              =>  'string',
@@ -54,11 +62,7 @@ class ProfileController extends Controller
         $user->teléfono = $request['teléfono'];
         $user->país= $request['país'];
 
-        // Check if the password matches
-        if (!(Hash::check($request->get('password'), Auth::user()->password))) {
-            $errorPassword = "Contraseña incorrecta";
-          return view('editprofile', compact('errorPassword'));
-        }
+
         //Check if the new password is different from the old password
        //  if (!(Hash::check($request->get('newpassword'), Auth::user()->password))) {
        //     $errorNewPassword = "Tu nueva contraseña no puede ser igual a tu contraseña anterior!";;
