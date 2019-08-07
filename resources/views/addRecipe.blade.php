@@ -12,7 +12,7 @@ Foodseason - Subir una receta
         <div class="container center-block">
     <div class="row">
       <div class="col-xs-12 col-sm-9">
-        <h4 style="color:#E24E42; margin:20px;"><strong>¡Vamos! ¡Subí una receta!</strong></h4>
+       <h2 class="titulo-receta"><hr> <i class="fas fa-carrot"></i> Subí una receta <i class="fas fa-carrot"></i><hr></h2>
         <form class="form-horizontal" action="addRecipe" method="post" enctype="multipart/form-data">
           @csrf
           <div class="panel panel-default">
@@ -28,7 +28,7 @@ Foodseason - Subir una receta
               @endif
               <br>
               <div class="col-sm-10">
-                <label class="col-sm-2 control-label"><i class="fas fa-utensils"></i> Foto:</label>
+                <label class="col-sm-2 control-label"><i class="fas fa-camera"></i> Foto:</label>
                 <input type="file" name="photoName"class="form-control">
 
               </div>
@@ -40,7 +40,7 @@ Foodseason - Subir una receta
             <br>
           <div class="form-group">
             <div class="col-sm-10">
-            <label class="col-sm-2 control-label"><i class="fas fa-utensils"></i> Procedimiento e ingredientes:</label>
+            <label class="col-sm-2 control-label"><i class="fas fa-book"></i> Procedimiento e ingredientes:</label>
               <textarea rows="10" name="recipeBody" class="form-control"></textarea>
             </div>
             </div>

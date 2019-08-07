@@ -23,6 +23,8 @@ class ProfileController extends Controller
   {
       return view('editprofile');
   }
+
+
   public function updateProfile(Request $request){
     // Check if the password matches
     if (!(Hash::check($request->get('password'), Auth::user()->password))) {
@@ -33,18 +35,24 @@ class ProfileController extends Controller
 
 
         // Form validation
-        $request->validate([
+        $rules=[
             'username'              =>  'string',
             'profile_image'     =>  'image|mimes:jpeg,png,jpg,gif|max:2048',
-            //'email' => 'string|email|max:255',
+            'email' => 'string|email|max:255',
             //'bio' =>  'string|max:140',
             //'teléfono'=> 'min:10',
-            'password' => 'required|string|min:6',
-            //'newpassword' => 'required|string|min:6|confirmed'
-        ],[
+            'currentPassword' => 'required|string|min:6',
+            'password' => 'string|min:6|confirmed'
+        ];
+        $messages=[
           'required'=>'Tenés que ingresar tu contraseña',
-          'confirmed'=>'Tus contraseñas no coinciden'
-        ]);
+          'confirmed'=>'Tus contraseñas no coinciden',
+          'email'=>'Tenés que ingresar un email válido',
+          'image'=>'El archivo que intentaste subir no es una imagen',
+          'max:2048'=>'Esa foto es muy pesada'
+        ];
+
+        $this->validate($request, $rules, $messages);
 
         // Get current user
         $user = Auth::user();
@@ -68,8 +76,8 @@ class ProfileController extends Controller
        //     $errorNewPassword = "Tu nueva contraseña no puede ser igual a tu contraseña anterior!";;
        //     return view('editProfile', compact('errorNewPassword'));
        // }
-       if($request['newpassword']){
-         $user->password = bcrypt($request->get('newpassword'));
+       if($request['password']){
+         $user->password = bcrypt($request->get('password'));
        }
        //persists user info to database
        $user->save();

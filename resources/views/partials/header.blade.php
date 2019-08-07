@@ -9,14 +9,14 @@
       <ul class="navbar-nav mr-auto">
         @guest
             <li class="form-inline my-2 my-lg-0 nav-item active">
-              <a class="nav-link" href="/{{ route('faqs') }}"><i class="fas fa-question"></i>  FAQ's</a>
+              <a class="nav-link" href="{{ route('faqs') }}"><i class="fas fa-question"></i>  FAQ's</a>
             </li>
             <li class="form-inline my-2 my-lg-0 nav-item active">
-                <a class="nav-link" href="/{{ route('login') }}"><i class="far fa-user"></i> {{ __('Ingresar') }}</a>
+                <a class="nav-link" href="{{ route('login') }}"><i class="far fa-user"></i> {{ __('Ingresar') }}</a>
             </li>
             @if (Route::has('register'))
                 <li class="nav-item active">
-                    <a class="nav-link" href="/{{ route('register') }}"><i class="fas fa-user"></i> {{ __('¿No tenes cuenta? ¡Registrate!') }}</a>
+                    <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user"></i> {{ __('¿No tenes cuenta? ¡Registrate!') }}</a>
                 </li>
             @endif
         @else

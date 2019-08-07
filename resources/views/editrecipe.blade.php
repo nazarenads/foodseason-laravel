@@ -1,6 +1,6 @@
 @extends("layouts.template")
 @section("title")
-Foodseason - Subir una receta
+Foodseason - Editar una receta
 @endsection
 @section("body")
       @include('partials.header')
@@ -8,12 +8,12 @@ Foodseason - Subir una receta
       <div class="container ">
       <div class="page-header header-filter" data-parallax="true"></div>
       <div class="main main-raised">
-      <div class="profile-content" style="margin:10px;">
+      <div class="profile-content">
         <div class="container center-block">
     <div class="row">
-      <div class="col-xs-12 col-sm-9">
-        <h4 style="color:#E24E42; margin:20px;"><strong> ¡Editá tu receta!</strong></h4>
-        <form class="form-horizontal" action="/editrecipe/{{ $recipe->id }}" method="post" enctype="multipart/form-data">
+      <div class="col-xs-12 col-sm-9" >
+        <h2 class="titulo-receta"><hr><i class="fas fa-carrot"></i> Editá tu receta <i class="fas fa-carrot"></i><hr></h2>
+        <form class="form-horizontal" action="/editrecipe/{{ $recipe->id }}" method="post" enctype="multipart/form-data" >
           @csrf
           <div class="panel panel-default">
             <div class="panel-body">
@@ -30,25 +30,25 @@ Foodseason - Subir una receta
               @if($errors->has('title'))
               <p>{{ $errors->first('title') }}</p>
               @endif
-              {{-- <div class="form-group">
-                <div class="col-sm-10">
-                  <label class="col-sm-2 control-label">Subtítulo:</label>
-                  <input type="text" name="subtitle" class="form-control">
-                </div>
-              </div> --}}
+
               <div class="col-sm-10">
-                <label class="col-sm-2 control-label">Foto:</label>
+                <label class="col-sm-2 control-label"><i class="fas fa-camera"></i> Foto:</label>
                 <input type="file" name="photoName" class="form-control">
               </div>
               <br>
-              @if($errors->has('photoName'))
-              <p>{{ $errors->first('photoName') }}</p>
-              @endif
+              @error('photoName')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+
+
+
             </div>
           <div class="form-group">
             <div class="col-sm-10">
-            <label class="col-sm-2 control-label">Procedimiento e ingredientes:</label>
-              <textarea rows="3" name="recipeBody" class="form-control">{{ old('recipeBody', $recipe->recipeBody) }}</textarea>
+            <label class="col-sm-2 control-label"><i class="fas fa-book"></i>  Procedimiento e ingredientes:</label>
+              <textarea rows="10" name="recipeBody" class="form-control">{{ old('recipeBody', $recipe->recipeBody) }}</textarea>
             </div>
             </div>
             @if($errors->has('recipeBody'))
@@ -64,6 +64,9 @@ Foodseason - Subir una receta
                     @endforeach
                     </select>
                   </div>
+
+
+
 
           </div>
 

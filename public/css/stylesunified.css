@@ -156,7 +156,7 @@ background-size: 100% auto;
 }
 
 .title {
-  
+
     min-height: 32px;
     color: #3C4858;
     font-weight: 700;
@@ -559,4 +559,29 @@ background-size: 100% auto;
    border-radius: 9px 9px 9px 9px;
    box-shadow: 1px 1px 11px #330033;
    background: #E9B000 url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
+}
+.titulo-receta{
+  color: #111;
+  font-size: 50px;
+  font-weight: 500;
+   line-height: 64px;
+   margin: 0 0 0;
+   padding: 20px 30px;
+   text-align: center;
+   text-transform: uppercase;
+}
+
+label .fa-utensils{
+  color: #008f95;
+}
+
+.titulo-receta .fa-carrot{
+  color: orange;
+}
+
+label .fa-book{
+  color: #E9B000;
+}
+label .fa-camera{
+  color: #E24E42;
 }
