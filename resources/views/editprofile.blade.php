@@ -37,12 +37,18 @@
             <label class="col-sm-2 control-label">Nombre de usuario</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" name='username' value="{{ old('username', auth()->user()->username) }}">
+              @if($errors->has('username'))
+              <p>{{ $errors->first('username') }}</p>
+              @endif
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">E-mail</label>
             <div class="col-sm-10">
               <input type="email" class="form-control" name='email' value="{{ old('email', auth()->user()->email) }}">
+              @if($errors->has('email'))
+              <p>{{ $errors->first('email') }}</p>
+              @endif
             </div>
           </div>
           <div class="form-group">
@@ -82,39 +88,42 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Nueva contraseña</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" name="newpassword" placeholder="Nueva contraseña" value="">
-              @if(isset($errorNewPassword))
-                    <span class="error-form">{{$errorNewPassword}}</span>
-                @endif
+              <input type="password" class="form-control" name="password" placeholder="Nueva contraseña" value="">
+              @if($errors->has('password'))
+              <p>{{ $errors->first('password') }}</p>
+              @endif
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Confirmar contraseña</label>
             <div class="col-sm-10">
               <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Repetí tu nueva contraseña">
+              @if($errors->has('password'))
+              <p>{{ $errors->first('password') }}</p>
+              @endif
             </div>
             <br>
               <div class="panel panel-default">
               <div class="panel-heading">
-              <h4 class="panel-title">Seguridad</h4>
+              <h4 class="panel-title">Ingresá tu contraseña para guardar cambios</h4>
               </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Ingresa tu contraseña para guardar cambios</label>
+              <label class="col-sm-2 control-label">Contraseña actual</label>
               <div class="col-sm-10">
-                <input type="password" class="form-control" name="password" required>
-                @if(isset($errorPassword))
-                      <span class="error-form">{{$errorPassword}}</span>
-                  @endif
+                <input type="password" class="form-control" name="currentPassword" required>
+                @if($errors->has('currentPassword'))
+                <p>{{ $errors->first('currentPassword') }}</p>
+                @endif
               </div>
               </div>
-          <div class="form-group">
+          {{-- <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
               <div class="checkbox">
                 <input type="checkbox" id="checkbox_1">
                 <label for="checkbox_1">Deseo que mi cuenta sea pública</label>
               </div>
             </div>
-          </div>
+          </div> --}}
           <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
               <button type="submit" class="btn btn-danger" style="background-color: #e24e42; color:white">Guardar</button>
