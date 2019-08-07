@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     @extends("layouts.template")
     @section("title")
-    Foodseason - Follow
+    Foodseason - Followers
     @endsection
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
