@@ -20,7 +20,7 @@
                  <div class="profile">
                      <h2 class="recipe-title">{{$recipe->title}}</h2>
                       <div class="recipeimg center">
-                        <img alt="" class="img-with-border" src="/storage/recipesPictures/{{$recipe->image}}">
+                        <img alt="" class="img-with-border" src="/storage/recipesPictures/{{$recipe->image}}" style="max-width:100%; max-height:100%;">
                         <br>
                       </div>
                       <div class="name">

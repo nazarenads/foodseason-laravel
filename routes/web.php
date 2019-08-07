@@ -39,11 +39,11 @@ Route::get('/faqs', function () {
 
 
 //RECIPES ROUTES
-Route::get('/index', 'RecipeController@index')->middleware('auth');
-Route::get('/feed', 'UsersController@showFollowedRecipes')->name('feed')->middleware('auth');
-Route::get('/filter', 'RecipeController@searchRecipes')->middleware('auth');
-Route::get('/noResults', 'RecipeController@show')->name('noResults')->middleware('auth');
-Route::get('/index/{tagName}', 'RecipeController@filterByTagName')->middleware('auth');
+Route::get('/index', 'RecipeController@index');
+Route::get('/feed', 'UsersController@showFollowedRecipes')->name('feed');
+Route::get('/filter', 'RecipeController@searchRecipes');
+Route::get('/noResults', 'RecipeController@show')->name('noResults');
+Route::get('/index/{tagName}', 'RecipeController@filterByTagName');
 Route::get('/addRecipe', 'RecipeController@create')->name('addRecipe')->middleware('auth');
 Route::post('/addRecipe', 'RecipeController@store')->name('addRecipe')->middleware('auth');
 Route::get('/editrecipe/{id}', 'RecipeController@edit')->middleware('auth');

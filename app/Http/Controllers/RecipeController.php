@@ -159,6 +159,7 @@ class RecipeController extends Controller
       public function searchRecipes(Request $request){
 
           $palabra = $request['search'];
+          // $recipes = DB::table('tags');
         $recipes = DB::table('recipes')
             ->join('tags', 'recipes.tag_id', '=', 'tags.id')
             ->select('recipes.id', 'recipes.title AS recipeTitle', 'recipes.image', 'recipes.recipeBody AS recipeBodyText', 'tags.tagName AS tagNameText')
