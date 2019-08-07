@@ -39,20 +39,20 @@ Route::get('/faqs', function () {
 
 
 //RECIPES ROUTES
-Route::get('/index', 'RecipeController@index');
-Route::get('/feed', 'UsersController@showFollowedRecipes')->name('feed');
-Route::get('/filter', 'RecipeController@searchRecipes');
-Route::get('/noResults', 'RecipeController@show')->name('noResults');
-Route::get('/index/{tagName}', 'RecipeController@filterByTagName');
-Route::get('/addRecipe', 'RecipeController@create')->name('addRecipe');
-Route::post('/addRecipe', 'RecipeController@store')->name('addRecipe');
-Route::get('/editrecipe/{id}', 'RecipeController@edit');
-Route::post('/editrecipe/{id}', 'RecipeController@update');
-Route::get('/deleterecipe/{id}', 'RecipeController@showDestroy');
+Route::get('/index', 'RecipeController@index')->middleware('auth');
+Route::get('/feed', 'UsersController@showFollowedRecipes')->name('feed')->middleware('auth');
+Route::get('/filter', 'RecipeController@searchRecipes')->middleware('auth');
+Route::get('/noResults', 'RecipeController@show')->name('noResults')->middleware('auth');
+Route::get('/index/{tagName}', 'RecipeController@filterByTagName')->middleware('auth');
+Route::get('/addRecipe', 'RecipeController@create')->name('addRecipe')->middleware('auth');
+Route::post('/addRecipe', 'RecipeController@store')->name('addRecipe')->middleware('auth');
+Route::get('/editrecipe/{id}', 'RecipeController@edit')->middleware('auth');
+Route::post('/editrecipe/{id}', 'RecipeController@update')->middleware('auth');
+Route::get('/deleterecipe/{id}', 'RecipeController@showDestroy')->middleware('auth');
 Route::post('/deleterecipe/{id}', 'RecipeController@destroy')->name('deleteRecipe');
-Route::post('/feed', 'RecipeController@destroy');
-Route::get('/recipe/{id}', 'RecipeController@show');
-Route::get('/recipeDeleted', 'RecipeController@show');
+Route::post('/feed', 'RecipeController@destroy')->middleware('auth');
+Route::get('/recipe/{id}', 'RecipeController@show')->middleware('auth');
+Route::get('/recipeDeleted', 'RecipeController@show')->middleware('auth');
 
 
 
@@ -60,11 +60,11 @@ Route::get('/recipeDeleted', 'RecipeController@show');
 Auth::routes();
 Route::get('/editprofile', 'ProfileController@create')->middleware('auth');
 Route::post('/editprofile', 'ProfileController@updateProfile')->name('editprofile')->middleware('auth');
-Route::get('/newfriends', 'UsersController@showNewFriends')->name('newfriends');
-Route::get('/{username}', 'RecipeController@showUserRecipes')->name('profile');
-Route::get('/{username}', 'UsersController@show')->name('profile');
-Route::get('/{username}/followers', 'UsersController@followers');
-Route::get('/{username}/follows', 'UsersController@follows');
+Route::get('/newfriends', 'UsersController@showNewFriends')->name('newfriends')->middleware('auth');
+Route::get('/{username}', 'RecipeController@showUserRecipes')->name('profile')->middleware('auth');
+Route::get('/{username}', 'UsersController@show')->name('profile')->middleware('auth');
+Route::get('/{username}/followers', 'UsersController@followers')->middleware('auth');
+Route::get('/{username}/follows', 'UsersController@follows')->middleware('auth');
 Route::post('/{username}/follow', 'UsersController@follow')->middleware('auth');
 Route::post('/{username}/unfollow', 'UsersController@unfollow')->middleware('auth');
 
