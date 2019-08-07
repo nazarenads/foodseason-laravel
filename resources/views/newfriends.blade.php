@@ -28,7 +28,7 @@
                       {{ $user->username }}
                         </div>
                         <div class="">
-                            <a href="/{{$user->username}}"> <h4 style="color:black;" >{{$user->username}}</h4> </a>
+                            <a href="/{{$user->username}}" style="text-decoration:none;"> <h4 style="color:black;" >{{$user->username}}</h4> </a>
                             <p class="text-muted">{{$user->username}} <span>| </span><span><a href="#" class="text-pink"> {{$user->bio}}</a></span></p>
                         </div>
                         @if (Auth::check())
