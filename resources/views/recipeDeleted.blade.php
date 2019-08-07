@@ -16,7 +16,7 @@ Foodseason - Receta eliminada
               <div class="col-md-6 ml-auto mr-auto" >
                 <div class="alert alert-warning alert-dismissible fade show" role="alert" style="color:#4C4C4C;">
                 <strong> ¡Tu receta ha sido eliminada!</strong> <i class="fas fa-heart-broken" style="color:#"></i>
-                 <a href="addRecipe" style="color:#4C4C4C; text-decoration:none;">¿Querés subir una nueva receta? <i class="fas fa-plus-circle"></i></a>
+                 <a href="/addRecipe" style="color:#4C4C4C; text-decoration:none;">¿Querés subir una nueva receta? <i class="fas fa-plus-circle"></i></a>
 
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>

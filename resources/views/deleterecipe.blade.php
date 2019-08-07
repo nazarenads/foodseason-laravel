@@ -6,7 +6,7 @@
     @section("title")
     Foodseason - Eliminar Receta
     @endsection
-<link rel="icon" href="{{ asset('img/foodseasonicon.ico') }}">
+<link rel="icon" href="/{{ asset('img/foodseasonicon.ico') }}">
     @include('partials.header')
   </head>
 @section("body")
