@@ -85,21 +85,33 @@ Foodseason - Profile
                         <div class="card-body">
                           <h4 style="color:black;"><strong>{{$recipe->title}}</strong></h4>
                           <p class="card-text" style="height:150px; overflow:hidden;">{{$recipe->recipeBody}}</p>
+
                           <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                              <a href="recipe/{{$recipe->id}}" class="special-link btn btn-danger" style="text-decoration:none; background-color:#E24E42; margin:20%; border-radius: 50%;">  Ver más... </a>
                               @auth
-                              <a href="editrecipe/{{$recipe->id}}" class="special-link btn btn-warning" style="text-decoration:none;background-color:#E9BE00; margin:auto;border-radius: 50%;"><i class="far fa-edit"></i></a>@endauth
+                              <a href="recipe/{{$recipe->id}}" class="special-link btn btn-danger" style="text-decoration:none; background-color:#E24E42; margin:20%; border-radius: 50%;">  Ver más... </a>
+                            @else
+                              <a href="editrecipe/{{$recipe->id}}" class="special-link btn btn-warning" style="text-decoration:none;background-color:#E9BE00; margin:auto;border-radius: 50%;"><i class="far fa-edit"></i></a>
+                            @endauth
                             </div>
                             <small class="text-muted">
-                              @auth
-                              <form action="deleterecipe/{{$recipe->id}}" method="get">
-                            @csrf
-                            <input type="hidden" name="id" value="{{$recipe->id}}">
-                            <button type= "submit" class="btn btn-info" style="background-color: #008F95; color:white; border-radius: 50%;"><i class="far fa-trash-alt"></i></button>
-                            </form>
-                            @endauth</small>
+
+                                <form action="deleterecipe/{{$recipe->id}}" method="get">
+
+                                @csrf
+
+                                <input type="hidden" name="id" value="{{$recipe->id}}">
+                                @guest
+                                <button type= "submit" class="btn btn-info" style="background-color: #008F95; color:white; border-radius: 50%;"><i class="far fa-trash-alt"></i></button>
+                              @endguest
+                                  <form action="deleterecipe/{{$recipe->id}}" method="get">
+                                  @csrf
+                              </form>
+
+                          </small>
+
                           </div>
+
                         </div>
                       </div>
                     </div>
