@@ -159,7 +159,7 @@ class RecipeController extends Controller
       public function searchRecipes(Request $request){
 
           $palabra = $request['search'];
-          // $recipes = DB::table('tags');
+
         $recipes = DB::table('recipes')
             ->join('tags', 'recipes.tag_id', '=', 'tags.id')
             ->select('recipes.id', 'recipes.title AS recipeTitle', 'recipes.image', 'recipes.recipeBody AS recipeBodyText', 'tags.tagName AS tagNameText')
@@ -167,7 +167,6 @@ class RecipeController extends Controller
             ->orHaving('tagNameText', 'like', "%$palabra%")
             ->orHaving('recipeBodyText', 'like', "%$palabra%")
             ->get();
-
         if($recipes->count()==0){
           return view('noResults');
         }

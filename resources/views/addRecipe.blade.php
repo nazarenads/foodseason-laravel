@@ -21,7 +21,7 @@ Foodseason - Subir una receta
               <div class="form-group">
                 <div class="col-sm-10">
                   <label class="col-sm-2 control-label"><i class="fas fa-utensils"></i> Título:</label>
-                  <input type="text" name="title" class="form-control">
+                  <input type="text" name="title" class="form-control" required>
                 </div>
               </div>
               @if($errors->has('title'))
@@ -30,7 +30,7 @@ Foodseason - Subir una receta
               <br>
               <div class="col-sm-10">
                 <label class="col-sm-2 control-label"><i class="fas fa-camera"></i> Foto:</label>
-                <input type="file" name="photoName"class="form-control">
+                <input type="file" name="photoName"class="form-control" required>
 
               </div>
               <br>
@@ -42,7 +42,7 @@ Foodseason - Subir una receta
           <div class="form-group">
             <div class="col-sm-10">
             <label class="col-sm-2 control-label"><i class="fas fa-book"></i> Procedimiento e ingredientes:</label>
-              <textarea rows="10" name="recipeBody" class="form-control"></textarea>
+              <textarea rows="10" name="recipeBody" class="form-control" required></textarea>
             </div>
             </div>
             @if($errors->has('recipeBody'))
@@ -51,7 +51,7 @@ Foodseason - Subir una receta
             <div class="form-group">
 
               <div id="mainselection">
-                <select>
+                <select required name="tag" required>
                   <option value="">¿Cómo definirías a tu receta?</option>
                 @foreach ($listOfTags as $tag)
                   <option value="{{$tag['id']}}">{{$tag['tagName']}}</option>
