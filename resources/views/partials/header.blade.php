@@ -9,23 +9,23 @@
       <ul class="navbar-nav mr-auto">
         @guest
             <li class="form-inline my-2 my-lg-0 nav-item active">
-              <a class="nav-link" href="{{ route('faqs') }}"><i class="fas fa-question"></i>  FAQ's</a>
+              <a class="nav-link" href="/{{ route('faqs') }}"><i class="fas fa-question"></i>  FAQ's</a>
             </li>
             <li class="form-inline my-2 my-lg-0 nav-item active">
-                <a class="nav-link" href="{{ route('login') }}"><i class="far fa-user"></i> {{ __('Ingresar') }}</a>
+                <a class="nav-link" href="/{{ route('login') }}"><i class="far fa-user"></i> {{ __('Ingresar') }}</a>
             </li>
             @if (Route::has('register'))
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user"></i> {{ __('¿No tenes cuenta? ¡Registrate!') }}</a>
+                    <a class="nav-link" href="/{{ route('register') }}"><i class="fas fa-user"></i> {{ __('¿No tenes cuenta? ¡Registrate!') }}</a>
                 </li>
             @endif
         @else
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             @if (Auth::user()->profile_image)
-              <img src="storage/profilePictures/{{Auth::user()->profile_image}}" style="width: 40px; height: 40px; border-radius: 50%;">
+              <img src="/storage/profilePictures/{{Auth::user()->profile_image}}" style="width: 40px; height: 40px; border-radius: 50%;">
             @else
-              <img src="img/profiledefault.png" style="width: 40px; height: 40px; border-radius: 50%;">
+              <img src="/img/profiledefault.png" style="width: 40px; height: 40px; border-radius: 50%;">
             @endif
             {{ Auth::user()->username }} <span class="caret"></span>
           </a>
@@ -49,7 +49,7 @@
           <a class="nav-link" href="{{ route('newfriends')}}"> <i class="fas fa-user-plus"></i> Chefs  </a>
         </li>
         <li class="form-inline my-2 my-lg-0 nav-item active">
-          <a class="nav-link" href="{{Auth::user()->username}}"> <i class="far fa-user-circle"></i>  Mi perfil </a>
+          <a class="nav-link" href="/{{Auth::user()->username}}"> <i class="far fa-user-circle"></i>  Mi perfil </a>
         </li>
         <li class="form-inline my-2 my-lg-0 nav-item active">
           <a class="nav-link" href="{{route('addRecipe')}}"> <i class="fas fa-plus-circle"></i> Subir receta  </a>

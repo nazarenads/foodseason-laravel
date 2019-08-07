@@ -61,6 +61,7 @@ class UsersController extends Controller {
     }
 
     public function follows($username) {
+      
         $user = $this->findByUsername($username);
 
         return view('following', [

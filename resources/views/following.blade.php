@@ -16,9 +16,9 @@
                     <div class="member-card pt-2 pb-2">
                       <div class="followavatar">
                       @if ($user->profile_image)
-                        <img src="storage/profilePictures/{{$user->profile_image}}"  class="img-raised rounded-circle img-fluid">
+                        <img src="/storage/profilePictures/{{$user->profile_image}}"  class="img-raised rounded-circle img-fluid">
                       @else
-                        <img src="img/profiledefault.png"  class="img-raised rounded-circle img-fluid">
+                        <img src="/img/profiledefault.png"  class="img-raised rounded-circle img-fluid">
                       @endif
                       {{ $user->username }}
                         </div>
