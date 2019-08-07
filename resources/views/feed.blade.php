@@ -21,18 +21,10 @@ Foodseason - Feed
                         <img alt="" class="img-with-border" src="/storage/recipesPictures/{{$recipe->image}}" height="230px" width="200px">
                         <div class="card-body">
                           <p class="card-text" style="height:150px; overflow:hidden;">{{$recipe->recipeBody}}</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <a href="recipe/{{$recipe->id}}" class="special-link" style="text-decoration:none; background-color:#008F95; margin:20%; "> <i class="fas fa-glasses"></i> Ver más</a>
-                              @auth<a href="editrecipe/{{$recipe->id}}" class="special-link" style="text-decoration:none;background-color:#EB6E80; margin:auto;"><i class="far fa-edit"></i></a>@endauth
-                            </div>
-                            <small class="text-muted">@auth
-                              <form action="deleterecipe/{{$recipe->id}}" method="get">
-                            @csrf
-                            <input type="hidden" name="id" value="{{$recipe->id}}">
-                            <button type= "submit" class="btn btn-info" style="background-color: #008F95; color:white"><i class="far fa-trash-alt"></i></button>
-                            </form>
-                            @endauth</small>
+                          <div class="d-flex justify-content- align-items-center">
+                            <small class="text-muted">
+                              <a href="recipe/{{$recipe->id}}" class="special-link btn btn-danger" style="text-decoration:none; background-color:#E24E42; margin:20%; border-radius: 50%;"> Ver más... </a>
+                            </small>
                           </div>
                         </div>
                       </div>

@@ -17,7 +17,7 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function index(){
-         $recipes = Recipe::paginate(5);
+         $recipes = Recipe::paginate(100);
          return view('index', compact('recipes'));
      }
 
