@@ -167,6 +167,7 @@ class RecipeController extends Controller
             ->orHaving('tagNameText', 'like', "%$palabra%")
             ->orHaving('recipeBodyText', 'like', "%$palabra%")
             ->get();
+
         if($recipes->count()==0){
           return view('noResults');
         }
