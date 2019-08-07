@@ -6,6 +6,7 @@
     @section("title")
     Foodseason - Follow
     @endsection
+    <link rel="icon" href="{{ asset('img/foodseasonicon.ico') }}">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
   @section("body")

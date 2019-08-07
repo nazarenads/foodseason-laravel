@@ -3,6 +3,7 @@
   Foodseason - Índice de recetas
 @endsection
 @include('partials.header')
+<link rel="icon" href="{{ asset('img/foodseasonicon.ico') }}">
 
 @section("body")
 <body class="profile-body">

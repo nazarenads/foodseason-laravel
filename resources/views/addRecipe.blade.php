@@ -2,6 +2,7 @@
 @section("title")
 Foodseason - Subir una receta
 @endsection
+<link rel="icon" href="{{ asset('img/foodseasonicon.ico') }}">
 @section("body")
       @include('partials.header')
       <body class="profile-body">

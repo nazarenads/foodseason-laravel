@@ -2,6 +2,7 @@
 @section("title")
 Foodseason - Profile
 @endsection
+<link rel="icon" href="{{ asset('img/foodseasonicon.ico') }}">
 @section("body")
   <body class="profile-body">
         @include('partials.header')

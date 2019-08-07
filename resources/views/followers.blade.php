@@ -7,6 +7,7 @@
     Foodseason - Followers
     @endsection
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="icon" href="{{ asset('img/foodseasonicon.ico') }}">
   </head>
   @section("body")
   <body class="body-friends">

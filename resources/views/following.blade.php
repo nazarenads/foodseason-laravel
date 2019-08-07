@@ -2,7 +2,7 @@
     @section("title")
     Foodseason - Follow
     @endsection
-
+<link rel="icon" href="{{ asset('img/foodseasonicon.ico') }}">
   </head>
   @section("body")
   <body class="body-friends">
