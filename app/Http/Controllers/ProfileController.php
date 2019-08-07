@@ -41,8 +41,8 @@ class ProfileController extends Controller
             'email' => 'string|email|max:255',
             //'bio' =>  'string|max:140',
             //'teléfono'=> 'min:10',
-            'currentPassword' => 'required|string|min:6',
-            'password' => 'string|min:6|confirmed'
+            // 'currentPassword' => 'required|string|min:6',
+            'password' => 'required|string|min:6'
         ];
         $messages=[
           'required'=>'Tenés que ingresar tu contraseña',
