@@ -2,6 +2,7 @@
 @section("title")
 Foodseason - Resultados
 @endsection
+<link rel="icon" href="{{ asset('img/foodseasonicon.ico') }}">
 @section("body")
 @include('partials.header')
 

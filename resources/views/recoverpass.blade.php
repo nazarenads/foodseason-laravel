@@ -2,6 +2,7 @@
 @section("title")
 Foodseason - Recuperar contraseña
 @endsection
+<link rel="icon" href="{{ asset('img/foodseasonicon.ico') }}">
 @section("body")
   <body class= "forgotten-recover-body">
       @include('partials.header')
