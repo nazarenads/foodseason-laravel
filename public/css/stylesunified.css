@@ -139,8 +139,8 @@ p{
 
 .avatar img{
   /* cambia estos dos valores para definir el tamaño de tu círculo */
-height: 250px;
-width: 250px;
+height: 150px;
+width: 150px;
 /* los siguientes valores son independientes del tamaño del círculo */
 background-repeat: no-repeat;
 background-position: 50%;
@@ -156,8 +156,7 @@ background-size: 100% auto;
 }
 
 .title {
-    margin-top: 30px;
-    margin-bottom: 25px;
+  
     min-height: 32px;
     color: #3C4858;
     font-weight: 700;

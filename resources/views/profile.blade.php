@@ -32,7 +32,7 @@ Foodseason - Profile
                   @if(Auth::user()->id==$user->id)
                   <li class="nav-item">
                     <a href="editprofile" class="btn btn-light" style="background-color:#EB6E80; color:white;"> <i class="fas fa-user-edit"></i> Editar perfil </a>
-                    <a href="addRecipe" class="btn btn-light"  style="background-color:#E9B000;color:white;"> <i class="fab fa-nutritionix"></i> Nueva receta </a>
+                    <a href="addRecipe" class="btn btn-light"  style="background-color:#E9B000;color:white;"> <i class="fas fa-seedling"></i> Nueva receta </a>
                   </li>
                   @endif
               </div>
@@ -79,20 +79,22 @@ Foodseason - Profile
                   <div class="row">
                     @foreach ($listOfRecipes as $recipe)
                     <div class="col-md-4">
-                      <div class="card mb-4 shadow-sm" >
+                      <div class="card mb-4 shadow-sm">
                         <img alt="" class="img-with-border" src="/storage/recipesPictures/{{$recipe->image}}" height="230px" width="200px">
                         <div class="card-body">
                           <p class="card-text" style="height:150px; overflow:hidden;">{{$recipe->recipeBody}}</p>
                           <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                              <a href="recipe/{{$recipe->id}}" class="special-link" style="text-decoration:none; background-color:#008F95; margin:20%; "> <i class="fas fa-glasses"></i> Ver más</a>
-                              @auth<a href="editrecipe/{{$recipe->id}}" class="special-link" style="text-decoration:none;background-color:#EB6E80; margin:auto;"><i class="far fa-edit"></i></a>@endauth
+                              <a href="recipe/{{$recipe->id}}" class="special-link btn btn-danger" style="text-decoration:none; background-color:#E24E42; margin:20%; border-radius: 50%;">  Ver más... </a>
+                              @auth
+                              <a href="editrecipe/{{$recipe->id}}" class="special-link btn btn-warning" style="text-decoration:none;background-color:#E9BE00; margin:auto;border-radius: 50%;"><i class="far fa-edit"></i></a>@endauth
                             </div>
-                            <small class="text-muted">@auth
+                            <small class="text-muted">
+                              @auth
                               <form action="deleterecipe/{{$recipe->id}}" method="get">
                             @csrf
                             <input type="hidden" name="id" value="{{$recipe->id}}">
-                            <button type= "submit" class="btn btn-info" style="background-color: #008F95; color:white"><i class="far fa-trash-alt"></i></button>
+                            <button type= "submit" class="btn btn-info" style="background-color: #008F95; color:white; border-radius: 50%;"><i class="far fa-trash-alt"></i></button>
                             </form>
                             @endauth</small>
                           </div>
