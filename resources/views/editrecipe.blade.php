@@ -57,7 +57,7 @@ Foodseason - Editar una receta
             @endif
             <div class="form-group">
 
-                  <div id="mainselection">
+                  <div id="mainselection" style="max-width:100%;max-height:100%;">
                     <select>
                       <option value="">¿Cómo definirías a tu receta?</option>
                     @foreach ($listOfTags as $tag)
