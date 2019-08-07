@@ -22,6 +22,7 @@ Foodseason - Feed
                       <div class="card mb-4 shadow-sm" >
                         <img alt="" class="img-with-border" src="/storage/recipesPictures/{{$recipe->image}}" height="230px" width="200px">
                         <div class="card-body">
+                          <h4 style="color:black;"><strong>{{$recipe->title}}</strong></h4>
                           <p class="card-text" style="height:150px; overflow:hidden;">{{$recipe->recipeBody}}</p>
                           <div class="d-flex justify-content- align-items-center">
                             <small class="text-muted">
