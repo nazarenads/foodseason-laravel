@@ -15,8 +15,8 @@
                 <div class="text-center card-box-friends">
                     <div class="member-card pt-2 pb-2">
                       <div class="followavatar">
-                      @if ($user->profile_image)
-                        <img src="/storage/profilePictures/{{$user->profile_image}}"  class="img-raised rounded-circle img-fluid">
+                      @if ($follow->profile_image)
+                        <img src="/storage/profilePictures/{{$follow->profile_image}}"  class="img-raised rounded-circle img-fluid">
                       @else
                         <img src="/img/profiledefault.png"  class="img-raised rounded-circle img-fluid">
                       @endif
