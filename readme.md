@@ -1,3 +1,15 @@
+Proyecto de desarrollo web realizado en el marco del curso de Full stack de Digital House, se puede acceder a la aplicación terminada en
+foodseason.dhalumnos.com
+
+
+
+
+
+
+
+
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
